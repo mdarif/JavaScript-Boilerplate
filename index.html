@@ -1,0 +1,224 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang=en><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang=en><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang=en><![endif]-->
+<!--[if gt IE 8]><!--> <html class=no-js lang=en> <!--<![endif]-->
+    <head>
+        <meta charset=utf-8>
+        <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+        <title>JavaScript Framework</title>
+        <meta name=description content="">
+        <meta name=author content="">
+        <meta name=viewport content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div id="main" class="my_element">
+        	<section>
+                <article>
+                    <h2>Public/Private Variables and Methods</h2>
+                    <ul>
+                        <li>
+                            <strong>Private variables</strong>
+                            are declared with the 'var' keyword inside the object, and can only be accessed by private functions and privileged methods.
+                        </li>
+                        <li>
+                            <strong>Private functions</strong>
+                            are declared inline inside the object's constructor (or alternatively may be defined via var functionName=function(){...}) and may only be called by privileged methods (including the object's constructor).
+                        </li>
+                        <li>
+                            <strong>Privileged methods</strong>
+                            are declared with this.methodName=function(){...} and may invoked by code external to the object.
+                        </li>
+                        <li>
+                            <strong>Public properties</strong>
+                            are declared with this.variableName and may be read/written from outside the object.
+                        </li>
+                        <li>
+                            <strong>Public methods</strong>
+                            are defined by Classname.prototype.methodName = function(){...} and may be called from outside the object.
+                        </li>
+                        <li>
+                            <strong>Prototype properties</strong>
+                            are defined by Classname.prototype.propertyName = someValue
+                        </li>
+                        <li>
+                            <strong>Static properties</strong>
+                            are defined by Classname.propertyName = someValue
+                        </li>
+                    </ul>
+                </article>
+          	</section>
+            <section>
+            	<h2>Privileged methods/Helper Functions</h2>
+                <article>
+                    <h3>multiReplace(str, hash)</h3>
+                    <p>
+                        Replace multiple value in a single string. Return the new string at the end. You can pass regExe also.
+                    </p>
+                    <section class="example">
+<pre>var str = "http://localhost.com/mywebsite/?name=NAME&age=AGE&company=COMPANY";
+MODULE.helper.multiReplace(str, {
+    "NAME" : "Sam",
+    "AGE" : "26yrs",
+    "COMPANY" : "Sapient"
+});
+
+<strong>Final Output :</strong>
+http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
+                    </section>
+                </article>
+                <article>
+                    <h3>setCSS(el, styles)</h3>
+                    <p>
+                        Apply css to any element. Pass the name of element and the CSS in JSON format.
+                    </p>
+                    <section class="example">
+<pre>MODULE.helper.setCSS("main", {
+    "width" : "300px",
+    "background" : "red",
+    "padding" : "10px"
+});</pre>
+                    </section>
+                </article>
+                
+                <article>
+                    <h3>hasClass(el, name)</h3>
+                    <p>
+                        Check if the given element has given class assign or not.
+                    </p>
+                    <section class="example">
+                        <pre>MODULE.helper.hasClass("main", "my_element");</pre>
+                    </section>
+                </article>
+                
+                <article>
+                    <h3>addClass(el, name)</h3>
+                    <p>
+                         Add class to the given element.
+                    </p>
+                    <section class="example">
+                        <pre>MODULE.helper.addClass("main", "my_element2");</pre>
+                    </section>
+                </article>
+                
+                <article>
+                    <h3>removeClass(el, name)</h3>
+                    <p>
+                         Remove class from the given element.
+                    </p>
+                    <section class="example">
+                        <pre>MODULE.helper.removeClass("main", "my_element2");</pre>
+                    </section>
+                </article>
+                
+                <article>
+                    <h3>getDomain()</h3>
+                    <p>
+                        Return the URI of site. Return protocol, hostname and port if found.
+                    </p>
+                    <section class="example">
+                        <pre>MODULE.helper.getDomain();</pre>
+                    </section>
+                </article>
+                
+                <article>
+                    <h3>getQueryString(name, default_)</h3>
+                    <p>
+                        This method will return the query string from the URL of the website.
+                    </p>
+                    <section class="example">
+                        <pre>Copy "?name=RSR&age=26" and paste this at the address bar of the website and press enter.
+    
+MODULE.helper.getQueryString("name", "Not Found.");</pre>
+                    </section>
+                </article>
+                
+                <article>
+                    <h3>isBlank(string)</h3>
+                    <p>
+                        This method will check for blank value in the provided string. This will return true if provided string contain blank value and false if not.
+                    </p>
+                    <section class="example">
+                        <pre>var test = "      ";
+MODULE.helper.isBlank(test);</pre>
+                    </section>
+                </article>
+                
+                <article>
+                    <h3>setInfo(name, value)</h3>
+                    <p>
+                        Store information to client machine using HTML5 localStorate method.
+                    </p>
+                    <section class="example">
+                        <pre>MODULE.helper.setInfo("name", "RSR");</pre>
+                    </section>
+                </article>
+                
+                <article>
+                    <h3>getInfo(name, checkCookie)</h3>
+                    <p>
+                        Get information from client machine. Get information for HTML5 localstorage if available else get information from cookie.
+                    </p>
+                    <section class="example">
+                        <pre>MODULE.helper.getInfo("name");</pre>
+                    </section>
+                </article>
+                
+                <article>
+                    <h3>removeInfo(name, checkCookie)</h3>
+                    <p>
+                        Remove information from client machine.
+                    </p>
+                    <section class="example">
+                        <pre>MODULE.helper.removeInfo("name");</pre>
+                    </section>
+                </article>
+          	</section>
+            <section>
+            	<h2>Private methods</h2>
+                <article>
+                    <h3>id(el)</h3>
+                    <p>
+                       	This method return the element using javaScript getElementById() method.
+                    </p>
+                </article>
+                <article>
+                    <h3>setCookie(name,value,days)</h3>
+                    <p>
+                       	Store informaiton in a cookie on user machine.
+                    </p>
+                </article>
+                <article>
+                    <h3>getCookie(name)</h3>
+                    <p>
+                       	Get value of cookie by using its name from user machine.
+                    </p>
+                </article>
+                <article>
+                    <h3>removeCookie(name)</h3>
+                    <p>
+                       	Remove or delete cookie from user machine by its name.
+                    </p>
+                </article>
+         	</section>
+        </div>
+	<!-- JavaScript at the bottom for fast page loading -->
+
+	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/libs/jquery.js"><\/script>')</script>
+	<!-- scripts concatenated and minified via build script -->
+	<!-- Project specfic config goes here - projectname.config.js -->
+	<script src="js/_.config.js"></script>
+	<!-- Main is the JS Boilerplate for the project - projectname.main.js -->
+	<script src="js/_.main.js"></script>
+	<!-- Common functions can be placed in helper file - projectname.helper.js -->
+    <script src="js/_.helper.js"></script>
+	<!-- end scripts -->
+    </body>
+</html>
