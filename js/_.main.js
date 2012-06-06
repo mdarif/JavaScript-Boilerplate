@@ -160,7 +160,7 @@
                         $.log("User has not granted permissions!");
                     }
                 }, {
-                    scope:'publish_stream'
+                    scope: 'publish_stream'
                 });
             };
 
