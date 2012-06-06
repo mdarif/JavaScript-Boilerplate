@@ -9,7 +9,7 @@ Clone the git repo - `git clone git://github.com/mdarif/JavaScript-Boilerplate.g
 
 ## Contributing
 
-Anyone and everyone is welcome to [contribute](https://github.com/h5bp/html5-boilerplate/wiki/contribute).
+Anyone and everyone is welcome to [contribute](#).
 
 
 ## Project information
