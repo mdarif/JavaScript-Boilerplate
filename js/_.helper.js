@@ -3,9 +3,9 @@
  */
 
 /*jshint forin:true, noarg:true, eqeqeq:true, bitwise:true, undef:true, curly:true, browser:true, devel:true, indent:4, maxerr:50, jquery:true */
- 
+
+/*jslint devel: true, nomen: true, unparam: true, sloppy: true, indent: 4 */
 (function (MODULE, $, undefined) {
-			
 	/*
      * Singletons serve as a namespace provider which isolate implementation code
      * from the global namespace so as to provide a single point of access for functions,
@@ -22,7 +22,7 @@
 			var id = function (el) {
 				return document.getElementById(el);
 			};
-			
+
 			/*
              * Replace multiple value in a single string.
              * Accept two parameters str, hash
@@ -39,7 +39,7 @@
 				}
 				return str;
 			};
-			
+
 			/*
              * Set the CSS on a particular element
              * Accept two parameters el, styles

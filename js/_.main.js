@@ -11,9 +11,7 @@
 
 /*jshint forin:true, noarg:true, eqeqeq:true, bitwise:true, undef:true, curly:true, browser:true, devel:true, indent:4, maxerr:50, jquery:true */
 
-/*global $:false, jQuery:false */
-/*jslint browser:true*/
-/*nomen:true*/
+/*jslint devel: true, nomen: true, unparam: true, sloppy: true, indent: 4 */
 (function (MODULE, $, undefined) {
 
     /**
@@ -22,9 +20,9 @@
     jQuery.log = function (message) {
         if (MODULE.config.debug && (typeof window.console !== 'undefined' && typeof window.console.log !== 'undefined') && console.debug) {
             console.debug(message);
-        } else {
-            //alert(message);
-        }
+        } /*else {
+            alert(message);
+        }*/
     };
 
 	/**
@@ -37,7 +35,7 @@
 			}
 			return ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1].toLowerCase();
 		};
-	})(this);
+	}(this));
 
 	/*jQuery.toType(window); //"global" (all browsers)
 	jQuery.toType([1,2,3]); //"array" (all browsers)
@@ -53,6 +51,18 @@
     var foo = "foo",
         bar = "bar";
 
+    /**
+     * Private method
+     */
+
+    /* Benefits:
+     * 1. Makes it easier to understand "functions as an object".
+     * 2. It enforces good semicolon habits.
+     * 3. Doesn't have much of the baggage traditionally associated with functions and scope.
+     */
+    var getData = function () {
+    };
+
 	/**
      * Public methods and properties
      */
@@ -61,26 +71,14 @@
         $.log("hello world");
     };
 
-	/**
-     * Private method
-     */
-
-	/* Benefits:
-     * 1. Makes it easier to understand "functions as an object".
-     * 2. It enforces good semicolon habits.
-     * 3. Doesn't have much of the baggage traditionally associated with functions and scope.
-     */
-	var getData = function () {
-	};
-
 	/*
      * Singletons serve as a namespace provider which isolate implementation code
      * from the global namespace so as to provide a single point of access for functions,
      * this is useful for organizing code into logical sections.
-     * It is possible to put parentheses around this structure to instantiate it immedeatly after it's parsed.
+     * It is possible to put parentheses around this structure to instantiate it immediately after it's parsed.
      * This way it's always present when the script is executed and doesn't have to be instantiated separately.
 	*/
-    MODULE.subModule = function () {
+    MODULE.subModule = (function () {
         function _subModule() {
 
             var _this = this;
@@ -124,8 +122,8 @@
                             // the user's ID, a valid access token, a signed
                             // request, and the time the access token
                             // and signed request each expire
-                            var uid = response.authResponse.userID;
-                            var accessToken = response.authResponse.accessToken;
+                            var uid = response.authResponse.userID,
+                                accessToken = response.authResponse.accessToken;
                             $.log("uid: " + uid + "\nAccess Token: " + accessToken);
                         } else if (response.status === 'not_authorized') {
                             $.log("The user is logged in to Facebook but not connected to the app");
@@ -182,7 +180,7 @@
         }
 
         return new _subModule();
-    }();
+    }());
 
 /**
  * Check to evaluate whether 'MODULE' exists in the global namespace - if not, assign window.MODULE an object literal
