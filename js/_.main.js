@@ -17,7 +17,7 @@
     /**
      * Logging function, for debugging mode
      */
-    jQuery.log = function (message) {
+    $.log = function (message) {
         if (MODULE.config.debug && (typeof window.console !== 'undefined' && typeof window.console.log !== 'undefined') && console.debug) {
             console.debug(message);
         } /*else {
@@ -28,7 +28,7 @@
 	/**
      * Angus Croll awesome typeof fix from http://goo.gl/dat30
      */
-	jQuery.toType = (function toType(global) {
+	$.toType = (function toType(global) {
 		return function (obj) {
 			if (obj === global) {
 				return "global";
@@ -180,7 +180,7 @@
         }
 
         return new _subModule();
-    }());
+}());
 
 /**
  * Check to evaluate whether 'MODULE' exists in the global namespace - if not, assign window.MODULE an object literal
