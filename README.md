@@ -59,9 +59,9 @@ JavaScript Boilerplate is the collection of best practices using a design patter
 
 
 
-4. Next is the `_config.js` file which has all the global parameters that needs to be leveraged across the application.Think of this file/module as a spot to define your global variables that you would have ideally done before. It is globally available inside the Module namespace and we can access the parameters by specifying Module.config.language to get the value english in any other component. Here it has been primarily defined as an object literal as everything needs to be exposed globally.
+4. Next is the `_config.js` file which has all the global parameters that needs to be leveraged across the application.Think of this file/module as a spot to define your global variables that you would have ideally done before. It is globally available inside the `MODULE' namespace and we can access the parameters by specifying `MODULE.config.language` to get the value english in any other component. Here it has been primarily defined as an object literal as everything needs to be exposed globally.
 
-5. For creating utility methods to be used across application, you can leverage the `_helper.js` file. It works on the same principle as the _main.js. And the way to access a helper function outside the module would be `MODULE.helper.getCookie` for the getCookie function.
+5. For creating utility methods to be used across application, you can leverage the `_helper.js` file. It works on the same principle as the `_main.js`. And the way to access a helper function outside the module would be `MODULE.helper.getCookie` for the `getCookie` function.
 
 
 ## Quick start
