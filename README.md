@@ -1,18 +1,18 @@
 # [JavaScript Boilerplate](https://github.com/mdarif/JavaScript-Boilerplate)
 
-JavaScript Boilerplate is the collection of best practices using a design pattern (global abetment) with the namespaces which would help us out to protect our code in a modular way with some commonly used utility methods, it's equipped with the configuration file in the form object literal. It would be a template over which people can build their projects. We would also be looking into different APIs that can combine along with the best practices to enhance our customized solution.
+JavaScript Boilerplate is the collection of best practices using a design pattern (Global Abatement) with the use of defined namespaces that would help you to protect our code. It is developed in a modular way with some commonly used utility methods provided that you would find useful for common operations. It is equipped with the configuration file in the form of an object literal that can be used to store global objects, config ids, URLs or textual strings. This framework has been designed to work as a ready to use template that you can build further in your projects as needed as it outlines the framework neatly and exhibits an approach to extend it.
 
 
 ## Files in Repository
 
 
-1.  `index.html` - A html help file for helper functions. It also explains the privileged and private functions within the file.
+1.  `index.html` - An html help file illustrating helper functions.
 
-2.  `js/_config.js` - JS file having general details that will be commonly used across the application. Parameters like URLs, services, theme to be used within the application.
+2.  `js/_config.js` - Config is having general details that will be commonly used across the application. Parameters like URLs, services, theme to be used within the application.
 
-3.  `js/_helper.js` - JS file having utility functions that are required across different modules or even within a single module.
+3.  `js/_helper.js` - Helper utility functions that are required across different modules or even within a single module.
 
-4.  `js/_main.js` - Main module is defined here. We have used `IIFE` (Intermediately invoking function expression) namespacing pattern and global abetment in this logic. `MODULE` is main namespace that has been defined and `MODULE.helper` is one of the components.
+4.  `js/_main.js` - It defines the main module. We have used IIFE (Intermediately invoking function expression) namespacing and global abatement in this logic. MODULE is main namespace that has been defined and MODULE.helper is one of the components.
 
 5.  `css/style.css` - Style sheets for the html help file.
 
@@ -28,12 +28,11 @@ JavaScript Boilerplate is the collection of best practices using a design patter
 
         })(window.MODULE = window.MODULE || {}, jQuery);
 
-    The above code defined the `MODULE` namespace and also passed true values of jquery and undefined to the inner component.
-    Instead of `MODULE` you can define your project name or application name as well and that would be global namespace under which all the other components would be defined. So for e.g. if it is a coke project instead of `MODULE` you can even write `COKE` as well.
+    The above code defines the `MODULE` namespace and also passes true values of `jquery` and `undefined` to the inner component. Instead of `MODULE` you can define your project name or application name as well and that would become your global namespace under which all the other components should be declared/defined. For e.g. if it is a project name `MYPROJECT` instead of `MODULE` you can even write `MYPROJECT` as well.
 
-    Once you have defined the wrapper you can start of modules inside the global namespace.
+    Once you have defined the wrapper (global namespace), you can start of modules inside the global namespace.
 
-2. The second step would be to define the components which can be page level or widget level too.
+2. The second step would be to define the components, which can be page level or widget level too.
 
 	```javascript
     MODULE.subModule = (function () {
@@ -55,13 +54,13 @@ JavaScript Boilerplate is the collection of best practices using a design patter
     The above code has defined a component called helper as a sub module of `MODULE` namespace. `MODULE.helper` holds an object that gets returned through `new _subModule()`. We can define all the functions that we want for the helper module inside the function `_subModule()`.
 
 
-3. The third step would be to define the private values, private functions , priviledged functions etc within the `_subModule` function. Comments have been provided as to which one is a private function and which is a priviledged one. At the end of the function the init function is exposed which inturn returns the object itself. When the object is returned all the priviledged functions are exposed along with it and are accessible outside.
+3. The third step would be to define the private values, private functions , priviledged functions etc. within the `_subModule` function. Comments have been provided as to which one is a private function and which is a priviledged one. At the end of the function the `init()` function is exposed which in turn returns the object itself. When the object is returned all the priviledged functions are exposed along with it and are accessible outside.
 
 
 
-4. Next is the `_config.js` file which has all the global parameters that needs to be leveraged across the application.Think of this file/module as a spot to define your global variables that you would have ideally done before. It is globally available inside the `MODULE` namespace and we can access the parameters by specifying `MODULE.config.language` to get the value english in any other component. Here it has been primarily defined as an object literal as everything needs to be exposed globally.
+4. Next is the `_config.js` file, which has all the global parameters that needs to be leveraged across the application. Think of this file/module as a container file to define your global variables, URLS etc. It is globally available inside the `MODULE` namespace and we can access the parameters by specifying `MODULE.config.param` to get its value in any other component. Here it has been primarily defined as an object literal as everything needs to be exposed globally.
 
-5. For creating utility methods to be used across application, you can leverage the `_helper.js` file. It works on the same principle as the `_main.js`. And the way to access a helper function outside the module would be `MODULE.helper.getCookie` for the `getCookie` function.
+5. For creating utility methods to be used across application, you can leverage the `_helper.js` file. It works on the same principle as the `_main.js`. For E.g. the way to access a helper function outside the module would be `MODULE.helper.getCookie` for the `getCookie` function.
 
 
 ## Quick start

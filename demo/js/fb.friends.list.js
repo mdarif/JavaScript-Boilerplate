@@ -65,8 +65,8 @@
 			* Show friend list
 			*/
 			this.showFriendsList = function () {
-				FB.api('/me/friends', _this.onFriendsListLoaded);
-			};
+                FB.api('/me/friends', _this.onFriendsListLoaded);
+            };
 
 			/*
 			* Initialize Facebook
