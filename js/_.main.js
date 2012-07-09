@@ -17,7 +17,7 @@
     /**
      * Logging function, for debugging mode
      */
-    $.log = function (message) {
+	$.log = function (message) {
         if (MODULE.config.debug && (typeof window.console !== 'undefined' && typeof window.console.log !== 'undefined') && console.debug) {
             console.debug(message);
         } /*else {
@@ -173,13 +173,12 @@
              */
             this.init = function () {
                 _this.fbReady();
-                return this;
+                return this; /*this refere to MODULE.subModule*/
             };
 
-            return this.init();
+            return this.init(); /*this refere to MODULE.subModule.init()*/
         }
-
-        return new _subModule();
+        return new _subModule(); /*creating a new object of subModule rather then a funtion*/
 }());
 
 /**
