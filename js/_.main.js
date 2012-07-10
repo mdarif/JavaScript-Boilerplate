@@ -37,12 +37,12 @@
 		};
 	}(this));
 
-	/*jQuery.toType(window); //"global" (all browsers)
-	jQuery.toType([1,2,3]); //"array" (all browsers)
-	jQuery.toType(/a-z/); //"regexp" (all browsers)
-	jQuery.toType(JSON); //"json" (all browsers)
-	jQuery.toType(null); //"null" (all browsers)
-	jQuery.toType(undefined); //"undefined" (all browsers)*/
+	/*$.toType(window); //"global" (all browsers)
+	$.toType([1,2,3]); //"array" (all browsers)
+	$.toType(/a-z/); //"regexp" (all browsers)
+	$.toType(JSON); //"json" (all browsers)
+	$.toType(null); //"null" (all browsers)
+	$.toType(undefined); //"undefined" (all browsers)*/
 	//etc..
 
 	/**

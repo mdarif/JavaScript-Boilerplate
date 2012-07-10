@@ -264,13 +264,13 @@
 			
 			this.init = function () {
 				
-                return this;
+                return this; /*returning this from a method is a common way to allow "chaining" of methods together*/
             };
 			
-			return this.init();
+			return this.init(); /*this refer to MODULE.helper.init()*/
         }
 
-        return new _helper();
+        return new _helper(); /*creating a new object of helper rather then a funtion*/
     }());
 	
 /**
