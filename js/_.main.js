@@ -1,17 +1,20 @@
 /* JavaScript Boilerplate main scripting file *
  * @version 1.0
 */
-/* MODULE (our namespace name) and undefined are passed here 
- * to ensure 1. namespace can be modified locally and isn't 
+/* MODULE (our namespace name) and undefined are passed here
+ * to ensure 1. namespace can be modified locally and isn't
  * overwritten outside of our function context
- * 2. the value of undefined is guaranteed as being truly 
- * undefined. This is to avoid issues with undefined being 
+ * 2. the value of undefined is guaranteed as being truly
+ * undefined. This is to avoid issues with undefined being
  * mutable pre-ES5.
 */
 
 /*jshint forin:true, noarg:true, eqeqeq:true, bitwise:true, undef:true, curly:true, browser:true, devel:true, indent:4, maxerr:50, jquery:true */
 
-/*jslint devel: true, nomen: true, unparam: true, sloppy: true, indent: 4 */
+/*jslint devel: true, nomen: true, unparam: true, sloppy: true, indent: 4, newcap:true */
+
+/*global FB:false, jQuery, window, document*/
+
 (function (MODULE, $, undefined) {
 
     /**
@@ -176,10 +179,10 @@
                 return this; /*this refere to MODULE.subModule*/
             };
 
-            return this.init(); /*this refere to MODULE.subModule.init()*/
+            return this.init(); /*initialize the init()*/
         }
         return new _subModule(); /*creating a new object of subModule rather then a funtion*/
-}());
+    }());
 
 /**
  * Check to evaluate whether 'MODULE' exists in the global namespace - if not, assign window.MODULE an object literal

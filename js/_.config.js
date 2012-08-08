@@ -10,6 +10,10 @@
   * Any value that may change in the future
  */
 
+/*jslint sloppy: true */
+
+/*global FB:false, jQuery, window, document*/
+
 (function (MODULE, undefined) {
 	MODULE.config = {
 		language: 'english',
