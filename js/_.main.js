@@ -29,7 +29,7 @@
     };
 
 	/**
-     * Angus Croll awesome typeof fix from http://goo.gl/dat30
+     * Angus Croll awesome typeof fix from http://goo.gl/GtvsU
      */
 	$.toType = (function toType(global) {
 		return function (obj) {
