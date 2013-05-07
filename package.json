@@ -1,20 +1,19 @@
 {
-  "author"      : "Mohammed Arif",
-  "name"        : "JavaScript-Boilerplate",
+  "author"      : {
+    "name"    : "Mohammed Arif",
+    "email"   : "arif_iq@yahoo.co.in"
+    },
+  "name"        : "javascript-boilerplate",
   "description" : "JavaScript Boilerplate is the collection of best practices.",
-  "version": "1.0",
-  "repository"  : {
-    "url": "https://github.com/mdarif/JavaScript-Boilerplate"
-  },
   "keywords"    : ["js-boilerplate", "boilerplate", "javascript"],
+  "repository"  : {
+      "type"  : "git",
+      "url"   : "https://github.com/mdarif/JavaScript-Boilerplate.git"
+    },
   "dependencies": {
-    "jQuery": "./js/libs/jquery.js"
     },
   "devDependencies": {},
-  "main"      : "./js/_.main.js",
-  "version"   : "1.0",
-  "license"   : "MIT/GPL",
-  "engines"     : {
-    "node"   : "*"
-  }
+  "main"        : "./js/_.main.js",
+  "version"     : "1.0.1",
+  "license"     : "MIT/GPL"
 }
