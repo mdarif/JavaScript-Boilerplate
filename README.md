@@ -69,9 +69,7 @@ Clone the git repo - `git clone git://github.com/mdarif/JavaScript-Boilerplate.g
 
 You can also get the JavaScript Boilerplate through npm if you have already installed node.
 
-    ```javascript
     npm install javascript-boilerplate
-    ```
 
 ## Contributing
 
