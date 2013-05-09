@@ -9,7 +9,7 @@
 (function (FBDemo, undefined) {
 	FBDemo.config = {
         debug : true,
-		appId : '310499282370730',
+		appId : '123717221132767',
 		FriendsListContainer :	"#friends-list-container",
 		FBLoginButton :	"#fb-login-button-div"
 	};

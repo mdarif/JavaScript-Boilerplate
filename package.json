@@ -4,6 +4,7 @@
     "email"   : "arif_iq@yahoo.co.in"
     },
   "name"        : "javascript-boilerplate",
+  "title"       : "JavaScript-Boilerplate",
   "description" : "JavaScript Boilerplate is the collection of best practices.",
   "keywords"    : ["js-boilerplate", "boilerplate", "javascript"],
   "repository"  : {

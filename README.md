@@ -67,6 +67,12 @@ JavaScript Boilerplate is the collection of best practices using a design patter
 
 Clone the git repo - `git clone git://github.com/mdarif/JavaScript-Boilerplate.git` - or [download it](https://github.com/mdarif/JavaScript-Boilerplate/zipball/master)
 
+You can also get the JavaScript Boilerplate through npm if you have already installed node.
+
+    ```javascript
+    npm install javascript-boilerplate
+    ```
+
 ## Contributing
 
 Anyone and everyone is welcome to [contribute](#).
@@ -82,7 +88,6 @@ Anyone and everyone is welcome to [contribute](#).
 * MIT/GPL license
 
 
-## Authors
+## Author
 
 * Mohammed Arif [@arif_iq](http://twitter.com/arif_iq), [github](https://github.com/mdarif)
-* Venkat R Iyer [@viyer1](http://twitter.com/viyer1), [github](https://github.com/viyer1)
