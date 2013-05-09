@@ -34,24 +34,16 @@ JavaScript Boilerplate is the collection of best practices using a design patter
 
 2. The second step would be to define the components, which can be page level or widget level too.
 
-	```javascript
+
     MODULE.subModule = (function () {
-
         function _subModule() {
-
         ... (3)
-
-
         }
+        return new _subModule()
+     })();
 
 
-        return new _subModule();
-
-
-    })();
-    ```
-
-    The above code has defined a component called helper as a sub module of `MODULE` namespace. `MODULE.helper` holds an object that gets returned through `new _subModule()`. We can define all the functions that we want for the helper module inside the function `_subModule()`.
+   The above code has defined a component called helper as a sub module of `MODULE` namespace. `MODULE.helper` holds an object that gets returned through `new _subModule()`. We can define all the functions that we want for the helper module inside the function `_subModule()`.
 
 
 3. The third step would be to define the private values, private functions , priviledged functions etc. within the `_subModule` function. Comments have been provided as to which one is a private function and which is a priviledged one. At the end of the function the `init()` function is exposed which in turn returns the object itself. When the object is returned all the priviledged functions are exposed along with it and are accessible outside.
