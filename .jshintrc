@@ -1,0 +1,15 @@
+{
+  "curly": true,
+  "eqnull": true,
+  "eqeqeq": true,
+  "undef": true,
+  "globals": {
+        "jQuery": true,
+        "console": true,
+        "module": true,
+        "document": true,
+        "window": true,
+        "FB": true,
+        "localStorage": true
+  }
+}

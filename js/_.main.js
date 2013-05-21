@@ -9,12 +9,6 @@
  * mutable pre-ES5.
 */
 
-/*jshint forin:true, noarg:true, eqeqeq:true, bitwise:true, undef:true, curly:true, browser:true, devel:true, indent:4, maxerr:50, jquery:true */
-
-/*jslint devel: true, nomen: true, unparam: true, sloppy: true, indent: 4, newcap:true */
-
-/*global FB:false, jQuery, window, document*/
-
 (function (MODULE, $, undefined) {
 
     /**
@@ -34,44 +28,45 @@
 	$.toType = (function toType(global) {
 		return function (obj) {
 			if (obj === global) {
-				return "global";
+				return 'global';
 			}
 			return ({}).toString.call(obj).match(/\s([a-z|A-Z]+)/)[1].toLowerCase();
 		};
 	}(this));
 
-	/*$.toType(window); //"global" (all browsers)
-	$.toType([1,2,3]); //"array" (all browsers)
-	$.toType(/a-z/); //"regexp" (all browsers)
-	$.toType(JSON); //"json" (all browsers)
-	$.toType(null); //"null" (all browsers)
-	$.toType(undefined); //"undefined" (all browsers)*/
+	/*$.toType(window); //'global' (all browsers)
+	$.toType([1,2,3]); //'array' (all browsers)
+	$.toType(/a-z/); //'regexp' (all browsers)
+	$.toType(JSON); //'json' (all browsers)
+	$.toType(null); //'null' (all browsers)
+	$.toType(undefined); //'undefined' (all browsers)*/
 	//etc..
 
 	/**
      * Private properties
      */
-    var foo = "foo",
-        bar = "bar";
+    var name = 'Arif',
+        age = 30;
 
     /**
      * Private method
      */
 
     /* Benefits:
-     * 1. Makes it easier to understand "functions as an object".
+     * 1. Makes it easier to understand 'functions as an object'.
      * 2. It enforces good semicolon habits.
      * 3. Doesn't have much of the baggage traditionally associated with functions and scope.
      */
-    var getData = function () {
+    var getName = function () {
+        $.log('My name is ' + name + 'I am ' + age + ' old');
     };
 
 	/**
      * Public methods and properties
      */
-    MODULE.foobar = "foobar";
+    MODULE.title = 'Interactive Developer';
     MODULE.sayHello = function () {
-        $.log("hello world");
+        $.log('hello world');
     };
 
 	/*
@@ -145,7 +140,7 @@
                     js = d.createElement('script');
                     js.id = id;
                     js.async = true;
-                    js.src = "//connect.facebook.net/en_US/all.js";
+                    js.src = '//connect.facebook.net/en_US/all.js';
                     d.getElementsByTagName('head')[0].appendChild(js);
                 }(document));
             };
@@ -155,20 +150,14 @@
              */
             this.facebookLogin = function () {
                 FB.login(function (response) {
-                    if (response.status === "connected") {
-                        $.log("User is logged in and granted some permissions.");
+                    if (response.status === 'connected') {
+                        $.log('User is logged in and granted some permissions.');
                     } else if ((response.status === 'not_authorized') || response.authResponse === null) {
-                        $.log("User has not granted permissions!");
+                        $.log('User has not granted permissions!');
                     }
                 }, {
                     scope: 'publish_stream'
                 });
-            };
-
-            /**
-             * private method
-             */
-            var privateMethod = function () {
             };
 
             /**

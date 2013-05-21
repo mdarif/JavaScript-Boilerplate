@@ -2,11 +2,7 @@
  * @version 1.0
 */
 
-/*jshint forin:true, noarg:true, eqeqeq:true, bitwise:true, undef:true, curly:true, browser:true, devel:true, indent:4, maxerr:50, jquery:true */
-
-/*jslint devel: true, nomen: true, unparam: true, sloppy: true, indent: 4 */
-
-(function (FBDemo, undefined) {
+(function (FBDemo, $, undefined) {
 	FBDemo.config = {
         debug : true,
 		appId : '123717221132767',

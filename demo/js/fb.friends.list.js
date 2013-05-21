@@ -3,19 +3,13 @@
  * @version 1.0
 */
 
-/* FBDemo (our namespace name) and undefined are passed here 
- * To ensure 1. Namespace can be modified locally and isn't 
+/* FBDemo (our namespace name) and undefined are passed here
+ * To ensure 1. Namespace can be modified locally and isn't
  * overwritten outside of our function context
- * 2. The value of undefined is guaranteed as being truly 
- * Undefined. This is to avoid issues with undefined being 
+ * 2. The value of undefined is guaranteed as being truly
+ * Undefined. This is to avoid issues with undefined being
  * Mutable pre-ES5.
 */
-
-/*jshint forin:true, noarg:true, eqeqeq:true, bitwise:true, undef:true, curly:true, browser:true, devel:true, indent:4, maxerr:50, jquery:true */
-
-/*jslint devel: true, nomen: true, unparam: true, sloppy: true, indent: 4, newcap:true */
-
-/*global FB:false, jQuery, window*/
 
 (function (FBDemo, $, undefined) {
 	/**
