@@ -25,6 +25,9 @@ module.exports = function(grunt) {
                 }
             }
         },*/
+        clean: {
+            folder: "dist"
+        },
         uglify: { // Task
             options: {
                 // The banner is inserted at the top of the output
@@ -52,7 +55,7 @@ module.exports = function(grunt) {
                     removeEmptyAttributes: true,
                     removeOptionalTags: true*/
 
-                    removeComments: true,
+                    removeComments: false,
                     collapseWhitespace: false
                 },
                 files: { // Dictionary of files
@@ -84,22 +87,34 @@ module.exports = function(grunt) {
         watch: { // Task
             files: ['<%= jshint.files %>'],
             tasks: ['jshint']
+        },
+        useminPrepare: {
+            html: 'dist/index.html'
+        },
+        usemin: {
+            //html: 'dist/index.html'
+            html: ['dist/{,*/}*.html'],
+            css: ['dist/css/{,*/}*.css'],
+            options: {
+               dirs: ['dist']
+            }
         }
     });
 
-    // Finally, we have to load in the Grunt plugins we need. These should have all been installed through npm.
+    // Finally, we have to load in the Grunt plugins we need. These should have all been installed through npm
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    //grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-usemin');
+    //grunt.loadNpmTasks('grunt-contrib-watch');
+    //grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Let's set up some tasks
     grunt.registerTask('test', ['jshint']);
 
     // The default task can be run just by typing "grunt" on the command line
-    grunt.registerTask('default', ['jshint', 'uglify', 'cssmin', 'htmlmin']);
+    grunt.registerTask('default', ['clean', 'useminPrepare', 'jshint', 'uglify', 'cssmin', 'htmlmin', 'usemin']);
 
 };
