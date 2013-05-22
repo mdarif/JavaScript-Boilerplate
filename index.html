@@ -1,16 +1,19 @@
-<!doctype html>
-<!--[if lt IE 7]><html class="no-js ie6 oldie" lang=en><![endif]-->
-<!--[if IE 7]><html class="no-js ie7 oldie" lang=en><![endif]-->
-<!--[if IE 8]><html class="no-js ie8 oldie" lang=en><![endif]-->
-<!--[if gt IE 8]><!--> <html class=no-js lang=en> <!--<![endif]-->
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-        <meta charset=utf-8>
-        <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
-        <title>JavaScript Framework</title>
-        <meta name=description content="">
-        <meta name=author content="">
-        <meta name=viewport content="width=device-width,initial-scale=1">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>JavaScript Boilerplate</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- build:css css/style.min.css -->
         <link rel="stylesheet" href="css/style.css">
+        <!-- endbuild -->
+
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -85,7 +88,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
 });</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>hasClass(el, name)</h3>
                     <p>
@@ -95,7 +98,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                         <pre>MODULE.helper.hasClass("main", "my_element");</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>addClass(el, name)</h3>
                     <p>
@@ -105,7 +108,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                         <pre>MODULE.helper.addClass("main", "my_element2");</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>removeClass(el, name)</h3>
                     <p>
@@ -115,7 +118,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                         <pre>MODULE.helper.removeClass("main", "my_element2");</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>getDomain()</h3>
                     <p>
@@ -125,7 +128,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                         <pre>MODULE.helper.getDomain();</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>getQueryString(name, default_)</h3>
                     <p>
@@ -133,11 +136,11 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                     </p>
                     <section class="example">
                         <pre>Copy "?name=RSR&age=26" and paste this at the address bar of the website and press enter.
-    
+
 MODULE.helper.getQueryString("name", "Not Found.");</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>isBlank(string)</h3>
                     <p>
@@ -148,7 +151,7 @@ MODULE.helper.getQueryString("name", "Not Found.");</pre>
 MODULE.helper.isBlank(test);</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>setInfo(name, value)</h3>
                     <p>
@@ -158,7 +161,7 @@ MODULE.helper.isBlank(test);</pre>
                         <pre>MODULE.helper.setInfo("name", "RSR");</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>getInfo(name, checkCookie)</h3>
                     <p>
@@ -168,7 +171,7 @@ MODULE.helper.isBlank(test);</pre>
                         <pre>MODULE.helper.getInfo("name");</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>removeInfo(name, checkCookie)</h3>
                     <p>
@@ -212,13 +215,15 @@ MODULE.helper.isBlank(test);</pre>
 	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/libs/jquery.js"><\/script>')</script>
-	<!-- scripts concatenated and minified via build script -->
-	<!-- Project specfic config goes here - projectname.config.js -->
-	<script src="js/_.config.js"></script>
-	<!-- Main is the JS Boilerplate for the project - projectname.main.js -->
-	<script src="js/_.main.js"></script>
-	<!-- Common functions can be placed in helper file - projectname.helper.js -->
-    <script src="js/_.helper.js"></script>
-	<!-- end scripts -->
+
+        <!-- build:js js/javascript-boilerplate.min.js -->
+        <!-- Project specfic config goes here - projectname.config.js -->
+    	<script src="js/_.config.js"></script>
+        <!-- Main is the JS Boilerplate for the project - projectname.main.js -->
+    	<script src="js/_.main.js"></script>
+        <!-- Common functions can be placed in helper file - projectname.helper.js -->
+        <script src="js/_.helper.js"></script>
+        <!-- endbuild -->
+
     </body>
 </html>
