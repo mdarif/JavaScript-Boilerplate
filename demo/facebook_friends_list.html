@@ -11,8 +11,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width">
-
+    <!-- build:css ../css/style.min.css -->
     <link rel="stylesheet" href="../css/style.css">
+    <!-- endbuild -->
     <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -20,9 +21,9 @@
 <body>
 
     <div id="fb-root"></div>
-    
-    <a class="back-to-index" href="../index.html">Facebook API demos</a>
-    
+
+    <!--a class="back-to-index" href="../index.html">Facebook API demos</a-->
+
     <section id="wrapper" class="clear-fix">
         <article>
             <h2>Facebook Friends List</h2>
@@ -31,7 +32,7 @@
             </p>
             <a class="button read-more" href="https://developers.facebook.com/docs/reference/api/event/" target="_blank">Read more</a>
         </article>
-        
+
         <article>
             <h2>Facebook Friends List Example</h2>
             <section id="fb-login-button-div">
@@ -39,15 +40,17 @@
                 <br/><br/>
                 <div class="fb-login-button" data-show-faces="false" data-scope="read-stream,publish-stream" data-width="200" data-max-rows="1"></div>
             </section>
-        
+
             <section id="friends-list-container"></section>
         </article>
     </section>
-    
-    
+
     <script src="//code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="//connect.facebook.net/en_US/all.js"></script>
-    <script src="../js/fb.config.js"></script>
-    <script src="../js/facebook.friends.list.js"></script>
+    <!-- build:js ./js/fb.friends.min.js -->
+    <script src="./js/fb.config.js"></script>
+    <script src="./js/fb.friends.list.js"></script>
+    <!-- endbuild -->
+
 </body>
 </html>
