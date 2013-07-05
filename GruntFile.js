@@ -18,13 +18,13 @@ module.exports = function(grunt) {
         // Next we can read in the project settings from the package.json file into the pkg property. This allows us to refer to the values of properties within our package.json file.
         pkg: grunt.file.readJSON('package.json'),
         // Configure the copy task to move files from the development to production folders
-        /*copy: { // Task
-            target: {
-                files: {
-                    'dist/': ['index.html', 'demo/**'] // 'destination': 'source'
-                }
-            }
-        },*/
+        // copy: { // Task
+        //     target: {
+        //         files: {
+        //             'dist/': ['index.html', 'demo/**'] // 'destination': 'source'
+        //         }
+        //     }
+        // },
         clean: {
             folder: "dist"
         },
@@ -35,10 +35,10 @@ module.exports = function(grunt) {
             },
             dist: { // Target
                 files: { // Dictionary of files
-                    'dist/js/<%= pkg.name %>.min.js': ['js/_.config.js', 'js/_.main.js', 'js/_.helper.js'],
-                    'dist/demo/js/fb.friends.min.js': ['demo/js/fb.config.js', 'demo/js/fb.friends.list.js'],
-                    'dist/js/libs/jquery.min.js': ['js/libs/jquery.js'],
-                    'dist/js/libs/require.min.js': ['js/libs/require.js']
+                    'dist/js/<%= pkg.name %>.min.js': ['src/js/_.config.js', 'src/js/_.main.js', 'src/js/_.helper.js'],
+                    'dist/demo/js/fb.friends.min.js': ['src/demo/js/fb.config.js', 'src/demo/js/fb.friends.list.js'],
+                    'dist/js/libs/jquery.min.js': ['src/js/libs/jquery.js'],
+                    'dist/js/libs/require.min.js': ['src/js/libs/require.js']
                 }
             }
         },
@@ -59,35 +59,32 @@ module.exports = function(grunt) {
                     collapseWhitespace: false
                 },
                 files: { // Dictionary of files
-                    'dist/index.html': 'index.html', // 'destination': 'source'
-                    'dist/demo/facebook_friends_list.html': 'demo/facebook_friends_list.html'
+                    'dist/index.html': 'src/index.html', // 'destination': 'source'
+                    'dist/demo/facebook_friends_list.html': 'src/demo/facebook_friends_list.html'
                 }
             }
         },
         cssmin: { // Task
             combine: {
                 files: { // Dictionary of files
-                    'dist/css/style.min.css': ['css/style.css'],
-                    'dist/demo/css/style.min.css': ['demo/css/style.css']
+                    'dist/css/style.min.css': ['src/css/style.css'],
+                    'dist/demo/css/style.min.css': ['src/demo/css/style.css']
                 }
             }
         },
-        qunit: { // Task
-            files: ['test/**/*.html']
-        },
         jshint: { // Task
             // Define the files to lint
-            files: ['Gruntfile.js', 'js/*.js', 'demo/js/*.js'],
+            files: ['Gruntfile.js', 'src/js/*.js', 'src/demo/js/*.js'],
             // Configure JSHint (documented at http://www.jshint.com/docs/)
             options: {
                 // More options here if you want to override JSHint defaults
                 jshintrc: '.jshintrc'
             }
         },
-        watch: { // Task
-            files: ['<%= jshint.files %>'],
-            tasks: ['jshint']
-        },
+        // watch: { // Task
+        //     files: ['<%= jshint.files %>'],
+        //     tasks: ['jshint']
+        // },
         useminPrepare: {
             html: 'dist/index.html'
         },
