@@ -3,6 +3,8 @@
  */
 
 (function (MODULE, $, undefined) {
+    'use strict';
+
     /*
      * Singletons serve as a namespace provider which isolate implementation code
      * from the global namespace so as to provide a single point of access for functions,
@@ -12,9 +14,13 @@
     */
     MODULE.helper = (function () {
         function _helper() {
-            /*
-            * Object of the current object
+
+            /**
+            * In non-strict mode, 'this' is bound to the global scope when it isn't bound to anything else.
+            * In strict mode it is 'undefined'. That makes it an error to use it outside of a method.
             */
+
+            /*jshint validthis: true */
             var _this = this,
 
             /*

@@ -11,6 +11,7 @@
  */
 
 (function (MODULE, $, undefined) {
+
 	MODULE.config = {
 		language: 'english',
         debug: true,

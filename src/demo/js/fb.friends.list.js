@@ -12,6 +12,8 @@
 */
 
 (function (FBDemo, $, undefined) {
+    'use strict';
+
     /**
      * Logging function, for debugging mode
      */
@@ -25,9 +27,13 @@
 
     FBDemo.facebook = (function () {
         function _facebook() {
-            /*
-            * Object of the current object
+
+            /**
+            * In non-strict mode, 'this' is bound to the global scope when it isn't bound to anything else.
+            * In strict mode it is 'undefined'. That makes it an error to use it outside of a method.
             */
+
+            /*jshint validthis: true */
             var _this = this;
             /**
             * Init call

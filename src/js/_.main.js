@@ -10,6 +10,7 @@
 */
 
 (function (MODULE, $, undefined) {
+    'use strict';
 
     /**
      * Logging function, for debugging mode
@@ -79,6 +80,12 @@
     MODULE.subModule = (function () {
         function _subModule() {
 
+            /**
+            * In non-strict mode, 'this' is bound to the global scope when it isn't bound to anything else.
+            * In strict mode it is 'undefined'. That makes it an error to use it outside of a method.
+            */
+
+            /*jshint validthis: true */
             var _this = this;
             /* Store this to avoid scope conflicts */
 
@@ -165,7 +172,7 @@
              */
             this.init = function () {
                 _this.fbReady();
-                return this; /*this refere to MODULE.subModule*/
+                return this; /*this refer to MODULE.subModule*/
             };
 
             return this.init(); /*initialize the init()*/

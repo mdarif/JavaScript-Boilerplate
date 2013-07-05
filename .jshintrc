@@ -3,6 +3,7 @@
   "eqnull": true,
   "eqeqeq": true,
   "undef": true,
+  "newcap":false,
   "globals": {
         "jQuery": true,
         "console": true,
