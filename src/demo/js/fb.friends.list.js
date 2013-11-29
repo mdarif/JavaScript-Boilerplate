@@ -1,6 +1,6 @@
 /* Facebook implementation main scripting file *
  * Author: SapientNitro (2011) (http://www.sapient.com)
- * @version 1.0
+ * @version 1.1
 */
 
 /* FBDemo (our namespace name) and undefined are passed here

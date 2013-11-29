@@ -1,5 +1,5 @@
 /* JavaScript Boilerplate main scripting file *
- * @version 1.0
+ * @version 1.1
 */
 /* MODULE (our namespace name) and undefined are passed here
  * to ensure 1. namespace can be modified locally and isn't

@@ -1,5 +1,5 @@
 /* JavaScript Boilerplate configuration file *
- * @version 1.0
+ * @version 1.1
  */
  /* Why do we need config?
   * All URLs needed by the JavaScript
