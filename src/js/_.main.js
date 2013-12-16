@@ -1,13 +1,15 @@
 /* JavaScript Boilerplate main scripting file *
  * @version 1.1
-*/
+ * GIT URL - https://github.com/mdarif/JavaScript-Boilerplate
+ */
+
 /* MODULE (our namespace name) and undefined are passed here
  * to ensure 1. namespace can be modified locally and isn't
  * overwritten outside of our function context
  * 2. the value of undefined is guaranteed as being truly
  * undefined. This is to avoid issues with undefined being
  * mutable pre-ES5.
-*/
+ */
 
 (function (MODULE, $, undefined) {
     'use strict';

@@ -1,5 +1,6 @@
 /* JavaScript Boilerplate helper file *
  * @version 1.1
+ * GIT URL - https://github.com/mdarif/JavaScript-Boilerplate
  */
 
 (function (MODULE, $, undefined) {

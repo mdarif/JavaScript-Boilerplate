@@ -1,5 +1,6 @@
 /* Facebook implementation main config file *
  * @version 1.1
+ * GIT URL - https://github.com/mdarif/JavaScript-Boilerplate
 */
 
 (function (FBDemo, $, undefined) {
