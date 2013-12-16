@@ -1,6 +1,8 @@
 /* JavaScript Boilerplate configuration file *
  * @version 1.1
+ * GIT URL - https://github.com/mdarif/JavaScript-Boilerplate
  */
+
  /* Why do we need config?
   * All URLs needed by the JavaScript
   * Any strings that are displayed to the user
@@ -8,7 +10,7 @@
   * Settings (i.e., items per page)
   * Repeated unique values
   * Any value that may change in the future
- */
+  */
 
 (function (MODULE, $, undefined) {
 
