@@ -6,21 +6,21 @@ JavaScript Boilerplate is the collection of best practices using a design patter
 ## Files in Repository
 
 
-1.  `index.html` - An html help file illustrating helper functions.
+1. `src/index.html` - An html help file illustrating helper functions.
 
-2.  `js/_config.js` - Config is having general details that will be commonly used across the application. Parameters like URLs, services, theme to be used within the application.
+2. `src/js/_config.js` - Config is having general details that will be commonly used across the application. Parameters like URLs, services, theme to be used within the application.
 
-3.  `js/_helper.js` - Helper utility functions that are required across different modules or even within a single module.
+3. `src/js/_helper.js` - Helper utility functions that are required across different modules or even within a single module.
 
-4.  `js/_main.js` - It defines the main module. We have used IIFE (Intermediately invoking function expression) namespacing and global abatement in this logic. MODULE is main namespace that has been defined and MODULE.helper is one of the components.
+4. `src/js/_main.js` - It defines the main module. We have used IIFE (Intermediately invoking function expression) namespacing and global abatement in this logic. MODULE is main namespace that has been defined and MODULE.helper is one of the components.
 
-5.  `css/style.css` - Style sheets for the html help file.
+5. `src/css/style.css` - Style sheets for the html help file.
 
 ## Usage
 
 1. Clone the repository using the quick start guide. To get started include the JS files in your js directory.
 
-    The starting point is the `_main.js` file which has defined the main module and the component to be used. If you were to observe the code,
+    The starting point is the `src/js/_main.js` file which has defined the main module and the component to be used. If you were to observe the code,
 
         (function (MODULE, $, undefined) {
 
@@ -50,9 +50,9 @@ JavaScript Boilerplate is the collection of best practices using a design patter
 
 
 
-4. Next is the `_config.js` file, which has all the global parameters that needs to be leveraged across the application. Think of this file/module as a container file to define your global variables, URLS etc. It is globally available inside the `MODULE` namespace and we can access the parameters by specifying `MODULE.config.param` to get its value in any other component. Here it has been primarily defined as an object literal as everything needs to be exposed globally.
+4. Next is the `src/js/_config.js` file, which has all the global parameters that needs to be leveraged across the application. Think of this file/module as a container file to define your global variables, URLS etc. It is globally available inside the `MODULE` namespace and we can access the parameters by specifying `MODULE.config.param` to get its value in any other component. Here it has been primarily defined as an object literal as everything needs to be exposed globally.
 
-5. For creating utility methods to be used across application, you can leverage the `_helper.js` file. It works on the same principle as the `_main.js`. For E.g. the way to access a helper function outside the module would be `MODULE.helper.getCookie` for the `getCookie` function.
+5. For creating utility methods to be used across application, you can leverage the `src/js/_helper.js` file. It works on the same principle as the `src/js/_main.js`. For E.g. the way to access a helper function outside the module would be `MODULE.helper.getCookie` for the `getCookie` function.
 
 
 ## Quick start
@@ -62,6 +62,47 @@ Clone the git repo - `git clone git://github.com/mdarif/JavaScript-Boilerplate.g
 You can also get the JavaScript Boilerplate through npm if you have already installed node.
 
     npm install javascript-boilerplate
+
+## Build Instructions
+
+### We recommend using Grunt
+
+Grunt - Download and Install [Grunt](http://gruntjs.com).
+
+OR
+
+Install Grunt
+
+    $ npm install grunt
+
+You can also Install all the dependencies using
+
+    $ npm install
+
+### Updating Grunt:
+```
+$ npm update -g grunt-cli
+```
+
+### Build the Project using
+
+    $ grunt
+
+You should see this for a successful build.
+
+    Done, without errors.
+
+
+
+#### Cleaning NPM and Bower cache
+NPM has a caching system for holding packages that you already installed.
+We found that often cleaning the cache solves some troubles this system creates.
+
+NPM Clean Cache:
+```
+$ npm cache clean
+```
+
 
 ## Contributing
 
