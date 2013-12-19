@@ -6,15 +6,15 @@ JavaScript Boilerplate is the collection of best practices using a design patter
 ## Files in Repository
 
 
-1.  `src/index.html` - An html help file illustrating helper functions.
+1. `src/index.html` - An html help file illustrating helper functions.
 
-2.  `src/js/_config.js` - Config is having general details that will be commonly used across the application. Parameters like URLs, services, theme to be used within the application.
+2. `src/js/_config.js` - Config is having general details that will be commonly used across the application. Parameters like URLs, services, theme to be used within the application.
 
-3.  `src/js/_helper.js` - Helper utility functions that are required across different modules or even within a single module.
+3. `src/js/_helper.js` - Helper utility functions that are required across different modules or even within a single module.
 
-4.  `src/js/_main.js` - It defines the main module. We have used IIFE (Intermediately invoking function expression) namespacing and global abatement in this logic. MODULE is main namespace that has been defined and MODULE.helper is one of the components.
+4. `src/js/_main.js` - It defines the main module. We have used IIFE (Intermediately invoking function expression) namespacing and global abatement in this logic. MODULE is main namespace that has been defined and MODULE.helper is one of the components.
 
-5.  `src/css/style.css` - Style sheets for the html help file.
+5. `src/css/style.css` - Style sheets for the html help file.
 
 ## Usage
 
@@ -62,6 +62,36 @@ Clone the git repo - `git clone git://github.com/mdarif/JavaScript-Boilerplate.g
 You can also get the JavaScript Boilerplate through npm if you have already installed node.
 
     npm install javascript-boilerplate
+
+## Build Instructions
+
+### We recommend using Grunt
+
+Grunt - Download and Install [Grunt](http://gruntjs.com).
+
+OR
+
+Install Grunt
+
+    $ npm install grunt
+
+You can also Install all the dependencies using
+
+    $ npm install
+
+### Updating Grunt:
+```
+$ npm update -g grunt-cli
+```
+
+### Build the Project using
+
+    $ grunt
+
+You should see the below message for a successful build and a folder name `dist` has been created with all the expected output, parallel to `src` folder, with all the tasks completed.
+
+    Done, without errors.
+
 
 ## Contributing
 
