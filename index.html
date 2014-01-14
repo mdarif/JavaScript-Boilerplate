@@ -1,16 +1,19 @@
-<!doctype html>
-<!--[if lt IE 7]><html class="no-js ie6 oldie" lang=en><![endif]-->
-<!--[if IE 7]><html class="no-js ie7 oldie" lang=en><![endif]-->
-<!--[if IE 8]><html class="no-js ie8 oldie" lang=en><![endif]-->
-<!--[if gt IE 8]><!--> <html class=no-js lang=en> <!--<![endif]-->
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-        <meta charset=utf-8>
-        <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
-        <title>JavaScript Framework</title>
-        <meta name=description content="">
-        <meta name=author content="">
-        <meta name=viewport content="width=device-width,initial-scale=1">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>JavaScript Boilerplate</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- build:css css/style.min.css -->
         <link rel="stylesheet" href="css/style.css">
+        <!-- endbuild -->
+
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -18,7 +21,7 @@
 
     <body>
         <div id="main" class="my_element">
-        	<section>
+            <section>
                 <article>
                     <h2>Public/Private Variables and Methods</h2>
                     <ul>
@@ -52,9 +55,9 @@
                         </li>
                     </ul>
                 </article>
-          	</section>
+            </section>
             <section>
-            	<h2>Privileged methods/Helper Functions</h2>
+                <h2>Privileged methods/Helper Functions</h2>
                 <article>
                     <h3>multiReplace(str, hash)</h3>
                     <p>
@@ -85,7 +88,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
 });</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>hasClass(el, name)</h3>
                     <p>
@@ -95,7 +98,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                         <pre>MODULE.helper.hasClass("main", "my_element");</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>addClass(el, name)</h3>
                     <p>
@@ -105,7 +108,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                         <pre>MODULE.helper.addClass("main", "my_element2");</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>removeClass(el, name)</h3>
                     <p>
@@ -115,7 +118,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                         <pre>MODULE.helper.removeClass("main", "my_element2");</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>getDomain()</h3>
                     <p>
@@ -125,7 +128,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                         <pre>MODULE.helper.getDomain();</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>getQueryString(name, default_)</h3>
                     <p>
@@ -133,11 +136,11 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                     </p>
                     <section class="example">
                         <pre>Copy "?name=RSR&age=26" and paste this at the address bar of the website and press enter.
-    
+
 MODULE.helper.getQueryString("name", "Not Found.");</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>isBlank(string)</h3>
                     <p>
@@ -148,7 +151,7 @@ MODULE.helper.getQueryString("name", "Not Found.");</pre>
 MODULE.helper.isBlank(test);</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>setInfo(name, value)</h3>
                     <p>
@@ -158,7 +161,7 @@ MODULE.helper.isBlank(test);</pre>
                         <pre>MODULE.helper.setInfo("name", "RSR");</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>getInfo(name, checkCookie)</h3>
                     <p>
@@ -168,7 +171,7 @@ MODULE.helper.isBlank(test);</pre>
                         <pre>MODULE.helper.getInfo("name");</pre>
                     </section>
                 </article>
-                
+
                 <article>
                     <h3>removeInfo(name, checkCookie)</h3>
                     <p>
@@ -178,47 +181,110 @@ MODULE.helper.isBlank(test);</pre>
                         <pre>MODULE.helper.removeInfo("name");</pre>
                     </section>
                 </article>
-          	</section>
+
+                <article>
+                    <h3>getLength(object)</h3>
+                    <p>
+                        Gives length of passed object based on its key/value pair.
+                    </p>
+                    <section class="example">
+                        <pre>var object = {key1:"value1", key2:"value2", key3:"value3"};
+MODULE.helper.getLength(object);</pre>
+                    </section>
+                </article>
+
+                <article>
+                    <h3>getKeys(object)</h3>
+                    <p>
+                        Generates an array with all key names.
+                    </p>
+                    <section class="example">
+                        <pre>var object = {key1:"value1", key2:"value2", key3:"value3"};
+MODULE.helper.getKeys(object);
+<strong>Final Output :</strong>
+["key1","key2","key3"]</pre>
+                    </section>
+                </article>
+
+                <article>
+                    <h3>currentActiveElement(elementObject)</h3>
+                    <p>
+                        Sets page scroll function and identifies current index of passed elements. Also triggers function passed by <strong>callIt</strong> at given index. 
+                    </p>
+                    <section class="example">
+                        <pre>MODULE.helper.currentActiveElement($("section"));</pre>
+                    </section>
+                </article>
+                
+                <article>
+                    <h3>callIt(function, index)</h3>
+                    <p>
+                        Stores functions which will be called on passed scroll index.<br>
+                        This function is dependent on <strong>currentActiveElement</strong> function.
+                    </p>
+                    <section class="example">
+                        <pre>var sampleFunction = function(){
+console.log("Page's scroll position is at second section element.");
+}
+
+MODULE.helper.currentActiveElement($("section"));
+MODULE.helper.callIt(sampleFunction, 2);</pre>
+                    </section>
+                </article>
+
+                <article>
+                    <h3>currentActiveElement(elementObject)</h3>
+                    <p>
+                        Sets page scroll function and identifies current index of passed elements. Also triggers function passed by <strong>callIt</strong> at given index. 
+                    </p>
+                    <section class="example">
+                        <pre>MODULE.helper.currentActiveElement($("section"));</pre>
+                    </section>
+                </article>
+            </section>
+
             <section>
-            	<h2>Private methods</h2>
+                <h2>Private methods</h2>
                 <article>
                     <h3>id(el)</h3>
                     <p>
-                       	This method return the element using javaScript getElementById() method.
+                        This method return the element using javaScript getElementById() method.
                     </p>
                 </article>
                 <article>
                     <h3>setCookie(name,value,days)</h3>
                     <p>
-                       	Store informaiton in a cookie on user machine.
+                        Store informaiton in a cookie on user machine.
                     </p>
                 </article>
                 <article>
                     <h3>getCookie(name)</h3>
                     <p>
-                       	Get value of cookie by using its name from user machine.
+                        Get value of cookie by using its name from user machine.
                     </p>
                 </article>
                 <article>
                     <h3>removeCookie(name)</h3>
                     <p>
-                       	Remove or delete cookie from user machine by its name.
+                        Remove or delete cookie from user machine by its name.
                     </p>
                 </article>
-         	</section>
+            </section>
         </div>
-	<!-- JavaScript at the bottom for fast page loading -->
+    <!-- JavaScript at the bottom for fast page loading -->
 
-	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/libs/jquery.js"><\/script>')</script>
-	<!-- scripts concatenated and minified via build script -->
-	<!-- Project specfic config goes here - projectname.config.js -->
-	<script src="js/_.config.js"></script>
-	<!-- Main is the JS Boilerplate for the project - projectname.main.js -->
-	<script src="js/_.main.js"></script>
-	<!-- Common functions can be placed in helper file - projectname.helper.js -->
-    <script src="js/_.helper.js"></script>
-	<!-- end scripts -->
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery.js"><\/script>')</script>
+
+        <!-- build:js js/javascript-boilerplate.min.js -->
+        <!-- Project specfic config goes here - projectname.config.js -->
+        <script src="js/_.config.js"></script>
+        <!-- Main is the JS Boilerplate for the project - projectname.main.js -->
+        <script src="js/_.main.js"></script>
+        <!-- Common functions can be placed in helper file - projectname.helper.js -->
+        <script src="js/_.helper.js"></script>
+        <!-- endbuild -->
+
     </body>
 </html>
