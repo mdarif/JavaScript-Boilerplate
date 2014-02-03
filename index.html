@@ -209,7 +209,7 @@ MODULE.helper.getKeys(object);
                 <article>
                     <h3>currentActiveElement(elementObject)</h3>
                     <p>
-                        Sets page scroll function and identifies current index of passed elements. Also triggers function passed by <strong>callIt</strong> at given index. 
+                        Sets page scroll function and identifies current index of passed elements. Also triggers function passed by <strong>triggerOnActiveElement</strong> at given index. 
                     </p>
                     <section class="example">
                         <pre>MODULE.helper.currentActiveElement($("section"));</pre>
@@ -217,7 +217,7 @@ MODULE.helper.getKeys(object);
                 </article>
                 
                 <article>
-                    <h3>callIt(function, index)</h3>
+                    <h3>triggerOnActiveElement(function, index)</h3>
                     <p>
                         Stores functions which will be called on passed scroll index.<br>
                         This function is dependent on <strong>currentActiveElement</strong> function.
@@ -228,17 +228,7 @@ console.log("Page's scroll position is at second section element.");
 }
 
 MODULE.helper.currentActiveElement($("section"));
-MODULE.helper.callIt(sampleFunction, 2);</pre>
-                    </section>
-                </article>
-
-                <article>
-                    <h3>currentActiveElement(elementObject)</h3>
-                    <p>
-                        Sets page scroll function and identifies current index of passed elements. Also triggers function passed by <strong>callIt</strong> at given index. 
-                    </p>
-                    <section class="example">
-                        <pre>MODULE.helper.currentActiveElement($("section"));</pre>
+MODULE.helper.triggerOnActiveElement(sampleFunction, 2);</pre>
                     </section>
                 </article>
             </section>
