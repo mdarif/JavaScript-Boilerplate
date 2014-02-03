@@ -278,8 +278,8 @@
              * Returns number of all keys mentioned in json object
             */
             this.getLength = function (object) {
-                var _lengthArray = this.getKeys(object);
-                return _lengthArray.length;
+                var lengthArray = this.getKeys(object);
+                return lengthArray.length;
             };
 
              /*
@@ -289,16 +289,16 @@
              * Returns an array of all keys mentioned in json object
             */
             this.getKeys = function (object) {
-                var _keyArray = [],
-                    _name;
+                var keyArray = [],
+                    name;
                 if (typeof object.keys !== "function") {
-                        for (_name in object) {
-                            if (object.hasOwnProperty(_name)) {
-                                _keyArray.push(_name);
+                        for (name in object) {
+                            if (object.hasOwnProperty(name)) {
+                                keyArray.push(name);
                             }
                         }
                 }
-                return _keyArray;
+                return keyArray;
             };
 
             /*
@@ -306,22 +306,22 @@
              * Returns an object containing all meta information
             */
             this.getMetaInfo = function () { 
-               var _meta = document.getElementsByTagName('meta'),
-                   _metaData = {},
-                   _tempName;
+               var meta = document.getElementsByTagName('meta'),
+                   metaData = {},
+                   tempName;
 
                for (var i=0; i<_meta.length; i++) { 
-                    _tempName = _meta[i].getAttribute("name");
-                    _metaData[_tempName] = _meta[i].getAttribute("content");
+                    tempName = _meta[i].getAttribute("name");
+                    metaData[tempName] = meta[i].getAttribute("content");
                }
-                return _metaData;
+                return metaData;
             };
             
             /*
              * Sets page scroll function and identifies current index of element passed
              *      Accept single parameter elem
              *      elem : elem is jQuery object of dome element which acts as container. i.e. $("section"), $("div")
-             * Calls functions passed in callIt function, based on scroll index of element
+             * Calls functions passed in triggerOnActiveElement function, based on scroll index of element
             */
             this.currentActiveElement = function(elem){
                 $(window, "body").on('scroll', function(event) {
@@ -347,7 +347,7 @@
              *      i  : i is index which sync with scroll index of element passed in currentActiveElement
              * Sets function with given index and store in _allScrollFn array, which will be used in currentActiveElement to call passed function on assigned index
             */
-            this.callIt = function(fn, i){
+            this.triggerOnActiveElement = function(fn, i){
                 _allScrollFn[i]=fn;
             };      
 
