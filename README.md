@@ -67,7 +67,9 @@ You can also get the JavaScript Boilerplate through npm if you have already inst
 
 Install [Grunt](http://gruntjs.com/getting-started).
 
-OR follow the below instructions to setup the 'Grunt'
+OR 
+
+###Follow the below instructions to install and setup the `Grunt`
 
 Install Grunt CLI, this will put the grunt command in your system path, allowing it to be run from any directory.
 
@@ -77,7 +79,7 @@ Now install Grunt
 
     $ npm install grunt
 
-You should also install all the dependencies using
+You should also install all the dependencies
 
     $ npm install
 
@@ -85,7 +87,7 @@ You should also install all the dependencies using
 
     $ grunt
 
-You should see the below message for a successful build and a folder name `dist` has been created with all the expected output, parallel to `src` folder, with all the tasks completed.
+You should be able to see the below message for a successful build and a folder name `dist` has been created with all the expected output, parallel to `src` folder, with all the tasks completed.
 
     Done, without errors.
 
