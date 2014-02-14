@@ -7,24 +7,40 @@
  * https://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
  */
 
+// This is the default port that livereload listens on;
+// change it if you configure livereload to use another port.
+var LIVERELOAD_PORT = 35729;
+// lrSnippet is just a function.
+// It's a piece of Connect middleware that injects
+// a script into the static served html.
+var lrSnippet = require('connect-livereload')({
+    port: LIVERELOAD_PORT
+});
+// All the middleware necessary to serve static files.
+var livereloadMiddleware = function(connect, options) {
+    return [
+        // Inject a livereloading script into static files.
+        lrSnippet,
+        // Serve static files.
+        connect.static(options.base),
+        // Make empty directories browsable.
+        connect.directory(options.base)
+    ];
+};
 
 // The first part is the "wrapper" function, which encapsulates your Grunt configuration
 module.exports = function(grunt) {
 
     'use strict';
 
+    // load all grunt tasks
+    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
     // Project configuration
     grunt.initConfig({
         // Next we can read in the project settings from the package.json file into the pkg property. This allows us to refer to the values of properties within our package.json file.
         pkg: grunt.file.readJSON('package.json'),
-        // Configure the copy task to move files from the development to production folders
-        // copy: { // Task
-        //     target: {
-        //         files: {
-        //             'dist/': ['index.html', 'demo/**'] // 'destination': 'source'
-        //         }
-        //     }
-        // },
+
         clean: {
             folder: "dist"
         },
@@ -93,25 +109,81 @@ module.exports = function(grunt) {
             html: ['dist/{,*/}*.html'],
             css: ['dist/css/{,*/}*.css'],
             options: {
-               dirs: ['dist']
+                dirs: ['dist']
+            }
+        },
+        open: {
+            server: {
+                path: 'http://localhost:9000'
+            }
+
+        },
+        connect: {
+            client: {
+                options: {
+                    // The server's port, and the folder to serve from:
+                    // Ex: 'localhost:9000' would serve up 'client/index.html'
+                    port: 9000,
+                    // change this to '0.0.0.0' to access the server from outside
+                    hostname: 'localhost',
+                    base: 'dist',
+                    // Custom middleware for the HTTP server:
+                    // The injected JavaScript reloads the page.
+                    middleware: livereloadMiddleware
+                }
+            }
+        },
+        // The watch task is used to run tasks in response to file changes
+        watch: {
+            client: {
+                // '**' is used to include all subdirectories
+                // and subdirectories of subdirectories, and so on, recursively.
+                files: ['dist/**/*'],
+                // In our case, we don't configure any additional tasks,
+                // since livereload is built into the watch task,
+                // and since the browser refresh is handled by the snippet.
+                // Any other tasks to run (e.g. compile CoffeeScript) go here:
+                tasks: [],
+                options: {
+                    livereload: LIVERELOAD_PORT
+                }
             }
         }
     });
 
+
+/* Don't need to load the individual tasks anymore as we have been using 
+'matchdep' task in the start to load all the tasks from node_modules automatically */
+
     // Finally, we have to load in the Grunt plugins we need. These should have all been installed through npm
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-usemin');
-    //grunt.loadNpmTasks('grunt-contrib-watch');
-    //grunt.loadNpmTasks('grunt-contrib-copy');
+        // grunt.loadNpmTasks('grunt-contrib-clean');
+        // grunt.loadNpmTasks('grunt-contrib-uglify');
+        // grunt.loadNpmTasks('grunt-contrib-jshint');
+        // grunt.loadNpmTasks('grunt-contrib-cssmin');
+        // grunt.loadNpmTasks('grunt-contrib-htmlmin');
+        // grunt.loadNpmTasks('grunt-usemin');
+        // grunt.loadNpmTasks('grunt-open');
+        // grunt.loadNpmTasks('grunt-contrib-watch');
+        // grunt.loadNpmTasks('grunt-contrib-connect'); 
 
     // Let's set up some tasks
     grunt.registerTask('test', ['jshint']);
 
+    grunt.registerTask('server', [
+        'open',
+        'connect:client',
+        'watch:client'
+    ]);
+
     // The default task can be run just by typing "grunt" on the command line
-    grunt.registerTask('default', ['clean', 'useminPrepare', 'jshint', 'uglify', 'cssmin', 'htmlmin', 'usemin']);
+    grunt.registerTask('default', [
+        'clean',
+        'useminPrepare',
+        'jshint',
+        'uglify',
+        'cssmin',
+        'htmlmin',
+        'usemin'
+    ]);
 
 };

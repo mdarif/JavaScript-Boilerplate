@@ -11,6 +11,7 @@
         "document": true,
         "window": true,
         "FB": true,
-        "localStorage": true
+        "localStorage": true,
+        "require": true
   }
 }
