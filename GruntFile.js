@@ -33,18 +33,28 @@ module.exports = function(grunt) {
 
     'use strict';
 
-    // load all grunt tasks
+    // Load grunt tasks automatically
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-    // Project configuration
+    // Define the configuration for all the tasks
     grunt.initConfig({
         // Next we can read in the project settings from the package.json file into the pkg property. This allows us to refer to the values of properties within our package.json file.
         pkg: grunt.file.readJSON('package.json'),
 
-        clean: {
-            folder: "dist"
+        // Project settings
+        jsb: {
+            // Configurable paths
+            app: 'src',
+            dist: 'dist'
         },
-        uglify: { // Task
+
+        // Before generating any new files, remove any previously-created files.
+        clean: {
+            folder: '<%= jsb.dist %>'
+        },
+
+
+        uglify: {
             options: {
                 // The banner is inserted at the top of the output
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
@@ -58,59 +68,99 @@ module.exports = function(grunt) {
                 }
             }
         },
-        htmlmin: { // Task
-            dist: { // Target
-                options: { // Target options
-                    /*removeCommentsFromCDATA: true,
-                    // https://github.com/yeoman/grunt-usemin/issues/44
-                    //collapseWhitespace: true,
-                    collapseBooleanAttributes: true,
+        htmlmin: {
+            dist: {
+                options: {
+                    collapseBooleanAttributes: false,
+                    collapseWhitespace: false,
                     removeAttributeQuotes: true,
-                    removeRedundantAttributes: true,
-                    useShortDoctype: true,
+                    removeCommentsFromCDATA: true,
                     removeEmptyAttributes: true,
-                    removeOptionalTags: true*/
+                    removeOptionalTags: true,
+                    removeRedundantAttributes: true,
+                    useShortDoctype: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= jsb.app %>',
+                    src: '{,*/}*.html',
+                    dest: '<%= jsb.dist %>'
+                }]
+                // files: { // Dictionary of files
+                //     'dist/index.html': 'src/index.html', // 'destination': 'source'
+                //     'dist/demo/facebook_friends_list.html': 'src/demo/facebook_friends_list.html'
+                // }
+            }
+        },
 
-                    removeComments: false,
-                    collapseWhitespace: false
+
+        // Removed unused css
+        uncss: {
+            dist: {
+                files: {
+                    '<%= jsb.dist %>/css/style.min.css': ['<%= jsb.app %>/index.html'],
+                    '<%= jsb.dist %>/demo/css/style.min.css': ['<%= jsb.app %>/demo/facebook_friends_list.html']
+                }
+            },
+            options: {
+                compress: true
+            }
+        },
+
+        cssmin: {
+            dist: {
+                options: {
+                    keepSpecialComments: 0,
+                    report: "min",
+                    selectorsMergeMode: "ie8"
                 },
                 files: { // Dictionary of files
-                    'dist/index.html': 'src/index.html', // 'destination': 'source'
-                    'dist/demo/facebook_friends_list.html': 'src/demo/facebook_friends_list.html'
+                    '<%= jsb.dist %>/css/style.min.css': ['<%= jsb.app %>/css/style.css'],
+                    '<%= jsb.dist %>/demo/css/style.min.css': ['<%= jsb.app %>/demo/css/style.css']
                 }
             }
         },
-        cssmin: { // Task
-            combine: {
-                files: { // Dictionary of files
-                    'dist/css/style.min.css': ['src/css/style.css'],
-                    'dist/demo/css/style.min.css': ['src/demo/css/style.css']
-                }
-            }
-        },
-        jshint: { // Task
+
+        // Make sure code styles are up to par and there are no obvious mistakes
+        jshint: {
             // Define the files to lint
-            files: ['Gruntfile.js', 'src/js/*.js', 'src/demo/js/*.js'],
+            all: [
+                'Gruntfile.js',
+                '<%= jsb.app %>/js/*.js',
+                '<%= jsb.app %>/demo/js/*.js'
+            ],
             // Configure JSHint (documented at http://www.jshint.com/docs/)
             options: {
                 // More options here if you want to override JSHint defaults
                 jshintrc: '.jshintrc'
             }
         },
-        // watch: { // Task
-        //     files: ['<%= jshint.files %>'],
-        //     tasks: ['jshint']
-        // },
+
+        // Reads HTML for usemin blocks to enable smart builds that automatically
+        // concat, minify and revision files. Creates configurations in memory so
+        // additional tasks can operate on them
         useminPrepare: {
-            html: 'dist/index.html'
-        },
-        usemin: {
-            //html: 'dist/index.html'
-            html: ['dist/{,*/}*.html'],
-            css: ['dist/css/{,*/}*.css'],
+            html: '<%= jsb.app %>/index.html',
             options: {
-                dirs: ['dist']
+                dest: '<%= jsb.dist %>'
             }
+        },
+
+        // Performs rewrites based on rev and the useminPrepare configuration
+        usemin: {
+            html: ['<%= jsb.dist %>/{,*/}*.html'],
+            css: ['<%= jsb.dist %>/css/{,*/}*.css'],
+            options: {
+                assetsDirs: ['<%= jsb.dist %>']
+            }
+        },
+
+        // Compare CSS output's
+        compare_size: {
+            files: [
+                '<%= jsb.app %>/css/**',
+                '<%= jsb.dist %>/css/**'
+            ]
         },
         open: {
             server: {
@@ -126,19 +176,20 @@ module.exports = function(grunt) {
                     port: 9000,
                     // change this to '0.0.0.0' to access the server from outside
                     hostname: 'localhost',
-                    base: 'dist',
+                    base: '<%= jsb.app %>',
                     // Custom middleware for the HTTP server:
                     // The injected JavaScript reloads the page.
                     middleware: livereloadMiddleware
                 }
             }
         },
-        // The watch task is used to run tasks in response to file changes
+
+        // Watches files for changes and runs tasks based on the changed files
         watch: {
             client: {
                 // '**' is used to include all subdirectories
                 // and subdirectories of subdirectories, and so on, recursively.
-                files: ['dist/**/*'],
+                files: ['<%= jsb.app %>/**/*'],
                 // In our case, we don't configure any additional tasks,
                 // since livereload is built into the watch task,
                 // and since the browser refresh is handled by the snippet.
@@ -148,27 +199,50 @@ module.exports = function(grunt) {
                     livereload: LIVERELOAD_PORT
                 }
             }
+        },
+        notify: {
+            task_name: {
+                options: {
+                    // Task-specific options go here.
+                }
+            },
+            watch: {
+                options: {
+                    title: 'Task Complete', // optional
+                    message: 'SASS and Uglify finished running' //required
+                }
+            },
+            server: {
+                options: {
+                    message: 'Server is ready!'
+                }
+            },
+            connect: {
+                options: {
+                    message: 'Connected to server!'
+                }
+            }
+        },
+        // shell: {
+        //     docco: {
+        //         command: 'docco -o jsdocumentation -l linear src/js/*.js'
+        //     }
+        // },
+        jsdoc: {
+            dist: {
+                src: ['<%= jsb.app %>/js/_.main.js'],
+                options: {
+                    destination: '<%= jsb.dist %>/doc'
+                }
+            }
         }
     });
 
 
-/* Don't need to load the individual tasks anymore as we have been using 
-'matchdep' task in the start to load all the tasks from node_modules automatically */
-
-    // Finally, we have to load in the Grunt plugins we need. These should have all been installed through npm
-        // grunt.loadNpmTasks('grunt-contrib-clean');
-        // grunt.loadNpmTasks('grunt-contrib-uglify');
-        // grunt.loadNpmTasks('grunt-contrib-jshint');
-        // grunt.loadNpmTasks('grunt-contrib-cssmin');
-        // grunt.loadNpmTasks('grunt-contrib-htmlmin');
-        // grunt.loadNpmTasks('grunt-usemin');
-        // grunt.loadNpmTasks('grunt-open');
-        // grunt.loadNpmTasks('grunt-contrib-watch');
-        // grunt.loadNpmTasks('grunt-contrib-connect'); 
+    /* Don't need to load the individual tasks anymore as we have been using 
+    'matchdep' task in the start to load all the tasks from node_modules automatically */
 
     // Let's set up some tasks
-    grunt.registerTask('test', ['jshint']);
-
     grunt.registerTask('server', [
         'open',
         'connect:client',
@@ -183,7 +257,15 @@ module.exports = function(grunt) {
         'uglify',
         'cssmin',
         'htmlmin',
-        'usemin'
+        'usemin',
+        'uncss',
+        'compare_size',
+        'notify:server'
+    ]);
+
+    // Let's generate the JavaScript documentation
+    grunt.registerTask('js-doc', [
+        'jsdoc'
     ]);
 
 };
