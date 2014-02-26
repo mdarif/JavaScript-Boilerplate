@@ -36,6 +36,9 @@ module.exports = function(grunt) {
     // Load grunt tasks automatically
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
+    // Time how long tasks take. Can help when optimizing build times
+    require('time-grunt')(grunt);
+
     // Define the configuration for all the tasks
     grunt.initConfig({
         // Next we can read in the project settings from the package.json file into the pkg property. This allows us to refer to the values of properties within our package.json file.
@@ -47,79 +50,60 @@ module.exports = function(grunt) {
             app: 'src',
             dist: 'dist'
         },
-
-        // Before generating any new files, remove any previously-created files.
+        // Empties folders to start fresh
         clean: {
-            folder: '<%= jsb.dist %>'
-        },
-
-
-        uglify: {
-            options: {
-                // The banner is inserted at the top of the output
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-            },
-            dist: { // Target
-                files: { // Dictionary of files
-                    'dist/js/<%= pkg.name %>.min.js': ['src/js/_.config.js', 'src/js/_.main.js', 'src/js/_.helper.js'],
-                    'dist/demo/js/fb.friends.min.js': ['src/demo/js/fb.config.js', 'src/demo/js/fb.friends.list.js'],
-                    'dist/js/libs/jquery.min.js': ['src/js/libs/jquery.js'],
-                    'dist/js/libs/require.min.js': ['src/js/libs/require.js']
-                }
-            }
-        },
-        htmlmin: {
             dist: {
-                options: {
-                    collapseBooleanAttributes: false,
-                    collapseWhitespace: false,
-                    removeAttributeQuotes: true,
-                    removeCommentsFromCDATA: true,
-                    removeEmptyAttributes: true,
-                    removeOptionalTags: true,
-                    removeRedundantAttributes: true,
-                    useShortDoctype: true
-                },
                 files: [{
-                    expand: true,
-                    cwd: '<%= jsb.app %>',
-                    src: '{,*/}*.html',
-                    dest: '<%= jsb.dist %>'
+                    dot: true,
+                    src: [
+                        '.tmp',
+                        '<%= jsb.dist %>/*',
+                        '!<%= jsb.dist %>/.git*'
+                    ]
                 }]
-                // files: { // Dictionary of files
-                //     'dist/index.html': 'src/index.html', // 'destination': 'source'
-                //     'dist/demo/facebook_friends_list.html': 'src/demo/facebook_friends_list.html'
-                // }
-            }
-        },
-
-
-        // Removed unused css
-        uncss: {
-            dist: {
-                files: {
-                    '<%= jsb.dist %>/css/style.min.css': ['<%= jsb.app %>/index.html'],
-                    '<%= jsb.dist %>/demo/css/style.min.css': ['<%= jsb.app %>/demo/facebook_friends_list.html']
-                }
             },
-            options: {
-                compress: true
-            }
+            server: '.tmp'
         },
 
-        cssmin: {
-            dist: {
-                options: {
-                    keepSpecialComments: 0,
-                    report: "min",
-                    selectorsMergeMode: "ie8"
-                },
-                files: { // Dictionary of files
-                    '<%= jsb.dist %>/css/style.min.css': ['<%= jsb.app %>/css/style.css'],
-                    '<%= jsb.dist %>/demo/css/style.min.css': ['<%= jsb.app %>/demo/css/style.css']
-                }
-            }
-        },
+        // sass: {
+        //     dist: {
+        //         files: {
+        //             '<%= jsb.dist %>/css/style.min.css': '<%= jsb.app %>/css/style.scss'
+        //         }
+        //     }
+        // },
+
+        // By default, your `index.html`'s <!-- Usemin block --> will take care of
+        // minification. These next options are pre-configured if you do not wish
+        // to use the Usemin blocks.
+        // cssmin: {
+        //     dist: {
+        //         options: {
+        //             keepSpecialComments: 0,
+        //             report: "min",
+        //             selectorsMergeMode: "ie8"
+        //         },
+        //         files: { // Dictionary of files
+        //             '<%= jsb.dist %>/css/style.min.css': ['<%= jsb.app %>/css/style.css'],
+        //             '<%= jsb.dist %>/demo/css/style.min.css': ['<%= jsb.app %>/demo/css/style.css']
+        //         }
+        //     }
+        // },
+
+        // uglify: {
+        //     options: {
+        //         // The banner is inserted at the top of the output
+        //         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+        //     },
+        //     dist: { // Target
+        //         files: { // Dictionary of files
+        //             'dist/js/<%= pkg.name %>.min.js': ['src/js/_.config.js', 'src/js/_.main.js', 'src/js/_.helper.js'],
+        //             'dist/demo/js/fb.friends.min.js': ['src/demo/js/fb.config.js', 'src/demo/js/fb.friends.list.js'],
+        //             'dist/js/libs/jquery.min.js': ['src/js/libs/jquery.js'],
+        //             'dist/js/libs/require.min.js': ['src/js/libs/require.js']
+        //         }
+        //     }
+        // },
 
         // Make sure code styles are up to par and there are no obvious mistakes
         jshint: {
@@ -136,22 +120,72 @@ module.exports = function(grunt) {
             }
         },
 
+        // Compiles Sass to CSS and generates necessary files if requested
+        compass: {
+            options: {
+                sassDir: '<%= jsb.app %>/css',
+                cssDir: '.tmp/css',
+                // generatedImagesDir: '.tmp/images/generated',
+                // imagesDir: '<%= jsb.app %>/images',
+                // javascriptsDir: '<%= jsb.app %>/scripts',
+                // fontsDir: '<%= jsb.app %>/styles/fonts',
+                // importPath: '<%= jsb.app %>/bower_components',
+                // httpImagesPath: '/images',
+                // httpGeneratedImagesPath: '/images/generated',
+                // httpFontsPath: '/styles/fonts',
+                relativeAssets: false,
+                assetCacheBuster: false
+            },
+            dist: {
+                options: {
+                    //generatedImagesDir: '<%= jsb.dist %>/images/generated'
+                }
+            },
+            server: {
+                options: {
+                    debugInfo: true
+                }
+            }
+        },
+
         // Reads HTML for usemin blocks to enable smart builds that automatically
         // concat, minify and revision files. Creates configurations in memory so
         // additional tasks can operate on them
         useminPrepare: {
-            html: '<%= jsb.app %>/index.html',
             options: {
                 dest: '<%= jsb.dist %>'
-            }
+            },
+            //staging: '.tmp',
+            html: ['<%= jsb.app %>/index.html']
         },
 
         // Performs rewrites based on rev and the useminPrepare configuration
         usemin: {
-            html: ['<%= jsb.dist %>/{,*/}*.html'],
-            css: ['<%= jsb.dist %>/css/{,*/}*.css'],
             options: {
                 assetsDirs: ['<%= jsb.dist %>']
+            },
+            html: ['<%= jsb.dist %>/{,*/}*.html'],
+            css: ['<%= jsb.dist %>/css/{,*/}*.css']
+        },
+
+        htmlmin: {
+            dist: {
+                options: {
+                    collapseBooleanAttributes: true,
+                    collapseWhitespace: false,
+                    removeAttributeQuotes: false,
+                    removeCommentsFromCDATA: false,
+                    removeEmptyAttributes: false,
+                    removeOptionalTags: false,
+                    removeRedundantAttributes: false,
+                    useShortDoctype: false
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= jsb.dist %>',
+                    src: '{,*/}*.html',
+                    dest: '<%= jsb.dist %>'
+                }]
             }
         },
 
@@ -186,6 +220,16 @@ module.exports = function(grunt) {
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
+            js: {
+                files: ['<%= jsb.app %>/scripts/{,*/}*.js'],
+                tasks: ['jshint'],
+                options: {
+                    livereload: true
+                }
+            },
+            gruntfile: {
+                files: ['Gruntfile.js']
+            },
             client: {
                 // '**' is used to include all subdirectories
                 // and subdirectories of subdirectories, and so on, recursively.
@@ -198,7 +242,15 @@ module.exports = function(grunt) {
                 options: {
                     livereload: LIVERELOAD_PORT
                 }
-            }
+            },
+            compass: {
+                files: ['<%= jsb.app %>/css/{,*/}*.{scss,sass}'],
+                tasks: ['compass:server', 'autoprefixer']
+            },
+            // css: {
+            //     files: '**/*.scss',
+            //     tasks: ['sass']
+            // }
         },
         notify: {
             task_name: {
@@ -235,6 +287,59 @@ module.exports = function(grunt) {
                     destination: '<%= jsb.dist %>/doc'
                 }
             }
+        },
+        // Removed unused css
+        uncss: {
+            dist: {
+                files: {
+                    '<%= jsb.dist %>/css/style.min.css': ['<%= jsb.app %>/index.html'],
+                    '<%= jsb.dist %>/demo/css/style.min.css': ['<%= jsb.app %>/demo/facebook_friends_list.html']
+                }
+            },
+            options: {
+                compress: true,
+                report: 'min'
+            }
+        },
+
+        // Copies remaining files to places other tasks can use
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= jsb.app %>',
+                    dest: '<%= jsb.dist %>',
+                    src: [
+                        '*.{ico,png,txt}',
+                        '.htaccess',
+                        'images/{,*/}*.webp',
+                        '{,*/}*.html'
+                    ]
+                }]
+            },
+            styles: {
+                expand: true,
+                dot: true,
+                cwd: '<%= jsb.app %>/css',
+                dest: '.tmp/css/',
+                src: '{,*/}*.css'
+            }
+        },
+
+        // Run some tasks in parallel to speed up build process
+        concurrent: {
+            server: [
+                'compass:server',
+                'copy:styles'
+            ],
+            test: [
+                'copy:styles'
+            ],
+            dist: [
+                'compass',
+                'copy:styles'
+            ]
         }
     });
 
@@ -251,16 +356,26 @@ module.exports = function(grunt) {
 
     // The default task can be run just by typing "grunt" on the command line
     grunt.registerTask('default', [
-        'clean',
+        'clean:dist',
         'useminPrepare',
+        'concurrent:dist',
         'jshint',
-        'uglify',
+        'concat',
         'cssmin',
-        'htmlmin',
+        //'uncss',
+        'uglify',
+        'copy:dist',
         'usemin',
-        'uncss',
+        'htmlmin',
+        //'sass',
         'compare_size',
         'notify:server'
+    ]);
+
+
+    grunt.registerTask('build-uncss', [
+        'default',
+        'uncss'
     ]);
 
     // Let's generate the JavaScript documentation
