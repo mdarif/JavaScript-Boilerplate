@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <!-- build:css css/style.min.css -->
+        <!-- build:css(.tmp) css/style.min.css -->
         <link rel="stylesheet" href="css/style.css">
         <!-- endbuild -->
 
@@ -212,17 +212,17 @@ MODULE.helper.isBlank(test);</pre>
         </div>
 	<!-- JavaScript at the bottom for fast page loading -->
 
-	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/libs/jquery.js"><\/script>')</script>
+	   <!-- build:js js/vendor.js -->
+	   <script src="js/libs/jquery.js"></script>
+       <!-- endbuild -->
 
         <!-- build:js js/javascript-boilerplate.min.js -->
-        <!-- Project specfic config goes here - projectname.config.js -->
-    	<script src="js/_.config.js"></script>
-        <!-- Main is the JS Boilerplate for the project - projectname.main.js -->
-    	<script src="js/_.main.js"></script>
-        <!-- Common functions can be placed in helper file - projectname.helper.js -->
-        <script src="js/_.helper.js"></script>
+            <!-- Project specfic config goes here - projectname.config.js -->
+            <script src="js/_.config.js"></script>
+            <!-- Main is the JS Boilerplate for the project - projectname.main.js -->
+            <script src="js/_.main.js"></script>
+            <!-- Common functions can be placed in helper file - projectname.helper.js -->
+            <script src="js/_.helper.js"></script>
         <!-- endbuild -->
 
     </body>
