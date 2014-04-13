@@ -11,3 +11,5 @@ node_modules
 .sass-cache/
 .tmp/
 src/css/style.scss
+jsb.sublime-project
+jsb.sublime-workspace
