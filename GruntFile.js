@@ -36,6 +36,9 @@ module.exports = function(grunt) {
     // Load grunt tasks automatically
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
+    var plugins = ['karma-mocha'];
+    var browsers = [];
+
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
@@ -246,7 +249,7 @@ module.exports = function(grunt) {
             compass: {
                 files: ['<%= jsb.app %>/css/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
-            },
+            }
             // css: {
             //     files: '**/*.scss',
             //     tasks: ['sass']
@@ -327,6 +330,21 @@ module.exports = function(grunt) {
             }
         },
 
+        // Configure karma
+        // karma: {
+        //     unit: {
+        //         configFile: 'test/karma.conf.js',
+        //         background: true
+        //     },
+        //     watch: {
+        //         karma: {
+        //             files: ['src/**/*.js', 'test/unit/**/*.js'],
+        //             tasks: ['karma:unit:run']
+        //         }
+        //     }
+        // },
+        //},
+
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
@@ -340,7 +358,27 @@ module.exports = function(grunt) {
                 'compass',
                 'copy:styles'
             ]
+        },
+        karma: {
+            unit: {
+                configFile: 'test/karma.conf.js'
+            }
         }
+
+        // karma: {
+        //     options: {
+        //         configFile: 'test/karma.conf.js',
+        //         runnerPort: 9999,
+        //         //browsers: ['Chrome'] //['Chrome', 'Firefox']
+        //     },
+        //     continuous: {
+        //         singleRun: true,
+        //         //browsers: ['PhantomJS']
+        //     },
+        //     dev: {
+        //         reporters: 'dots'
+        //     }
+        // }
     });
 
 
@@ -381,6 +419,10 @@ module.exports = function(grunt) {
     // Let's generate the JavaScript documentation
     grunt.registerTask('js-doc', [
         'jsdoc'
+    ]);
+
+    grunt.registerTask('test', [
+        'karma'
     ]);
 
 };
