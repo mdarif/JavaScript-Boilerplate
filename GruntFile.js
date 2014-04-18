@@ -330,21 +330,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // Configure karma
-        // karma: {
-        //     unit: {
-        //         configFile: 'test/karma.conf.js',
-        //         background: true
-        //     },
-        //     watch: {
-        //         karma: {
-        //             files: ['src/**/*.js', 'test/unit/**/*.js'],
-        //             tasks: ['karma:unit:run']
-        //         }
-        //     }
-        // },
-        //},
-
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
@@ -364,21 +349,6 @@ module.exports = function(grunt) {
                 configFile: 'test/karma.conf.js'
             }
         }
-
-        // karma: {
-        //     options: {
-        //         configFile: 'test/karma.conf.js',
-        //         runnerPort: 9999,
-        //         //browsers: ['Chrome'] //['Chrome', 'Firefox']
-        //     },
-        //     continuous: {
-        //         singleRun: true,
-        //         //browsers: ['PhantomJS']
-        //     },
-        //     dev: {
-        //         reporters: 'dots'
-        //     }
-        // }
     });
 
 
