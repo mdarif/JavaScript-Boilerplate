@@ -48,8 +48,9 @@ describe("Test main js file", function() {
 	 * Test logging function, for debugging mode
 	 */
 	describe("test log function", function() { // suite
+
 		it("MODULE.config.debug should be true", function() { // specification or spec
-			expect(MODULE.config.debug).toEqual(true); // matcher, if you want to make sure something is literally true or false and nothing else, use the
+			expect(MODULE.config.debug).toBe(true); // matcher, if you want to make sure something is literally true or false and nothing else, use the
 			//toEqual matcher
 		});
 

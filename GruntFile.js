@@ -250,10 +250,6 @@ module.exports = function(grunt) {
                 files: ['<%= jsb.app %>/css/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
             }
-            // css: {
-            //     files: '**/*.scss',
-            //     tasks: ['sass']
-            // }
         },
         notify: {
             task_name: {
@@ -346,11 +342,35 @@ module.exports = function(grunt) {
         },
         karma: {
             unit: {
-                configFile: 'test/karma.conf.js'
+                //configFile: 'test/karma.conf.js'
             }
-        }
+        },
+        jasmine: {
+            src: 'src/js/*.js',
+            options: {
+                specs: 'test/unit/**/*.js',
+                helpers: ['src/js/_.config.js', 'src/js/_.main.js'],
+                keepRunner: true,
+                // host : 'http://127.0.0.1:8000/',
+                // summary: true,
+                vendor: [
+                    "src/js/libs/*.js"
+                    //"http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+                ]
+            },
+            // watch: {
+            //     pivotal: {
+            //         files: ['src/js/*.js','test/unit/**/*.js'],
+            //         tasks: 'jasmine:pivotal:build'
+            //     }
+            // }
+            watch: {
+                files: 'src/js/**/*.js',
+                tasks: ['jasmine']
+            }
+        },
     });
-
+// 
 
     /* Don't need to load the individual tasks anymore as we have been using 
     'matchdep' task in the start to load all the tasks from node_modules automatically */
