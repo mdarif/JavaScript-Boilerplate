@@ -17,12 +17,11 @@
     "url": "https://github.com/mdarif/JavaScript-Boilerplate.git"
   },
    "scripts": {
-    "test": "grunt travis --verbose"
+    "test": "grunt test"
   },
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-cli": "0.1.13",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-concat": "~0.3.0",

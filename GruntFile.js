@@ -249,6 +249,10 @@ module.exports = function(grunt) {
             compass: {
                 files: ['<%= jsb.app %>/css/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
+            },
+            watch: {
+                files: 'src/js/**/*.js',
+                tasks: ['jasmine']
             }
         },
         notify: {
@@ -342,14 +346,14 @@ module.exports = function(grunt) {
         },
         karma: {
             unit: {
-                //configFile: 'test/karma.conf.js'
+                configFile: 'test/karma.conf.js'
             }
         },
         jasmine: {
             src: 'src/js/*.js',
             options: {
                 specs: 'test/unit/**/*.js',
-                helpers: ['src/js/_.config.js', 'src/js/_.main.js'],
+                //helpers: ['src/js/_.config.js'],
                 keepRunner: true,
                 // host : 'http://127.0.0.1:8000/',
                 // summary: true,
@@ -357,20 +361,16 @@ module.exports = function(grunt) {
                     "src/js/libs/*.js"
                     //"http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
                 ]
-            },
+            }
             // watch: {
             //     pivotal: {
             //         files: ['src/js/*.js','test/unit/**/*.js'],
             //         tasks: 'jasmine:pivotal:build'
             //     }
             // }
-            watch: {
-                files: 'src/js/**/*.js',
-                tasks: ['jasmine']
-            }
         },
     });
-// 
+    // 
 
     /* Don't need to load the individual tasks anymore as we have been using 
     'matchdep' task in the start to load all the tasks from node_modules automatically */
@@ -397,6 +397,7 @@ module.exports = function(grunt) {
         'htmlmin',
         //'sass',
         'compare_size',
+        'test',
         'notify:server'
     ]);
 
@@ -412,6 +413,7 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('test', [
+        'jshint', 
         'karma'
     ]);
 
