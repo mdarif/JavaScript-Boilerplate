@@ -133,7 +133,7 @@ describe("Test main js file", function() {
 	});
 
 	describe("let's get the domain name", function() {
-		it("test protocol", function() {
+		xit("test protocol", function() {
 			expect(window.location.protocol).toContain("http");
 		});
 
@@ -179,4 +179,4 @@ describe("Test main js file", function() {
 	// 	});
 	// });
 
-})
+});

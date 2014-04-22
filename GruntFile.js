@@ -356,7 +356,7 @@ module.exports = function(grunt) {
                 specs: 'test/unit/**/*.js',
                 //helpers: ['src/js/_.config.js'],
                 keepRunner: true,
-                host : 'http://127.0.0.1:8000/',
+                //host : 'http://127.0.0.1:8000/',
                 // summary: true,
                 vendor: [
                     "src/js/libs/*.js"
