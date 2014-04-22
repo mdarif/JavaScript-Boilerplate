@@ -3,7 +3,7 @@
  * GIT URL - https://github.com/mdarif/JavaScript-Boilerplate
  */
 
-(function (MODULE, $, undefined) {
+(function (JSB, $, undefined) {
     'use strict';
 
     /*
@@ -13,7 +13,7 @@
      * It is possible to put parentheses around this structure to instantiate it immediately after it's parsed.
      * This way it's always present when the script is executed and doesn't have to be instantiated separately.
     */
-    MODULE.helper = (function () {
+    JSB.helper = (function () {
         function _helper() {
 
             /**
@@ -163,45 +163,6 @@
             };
 
             /*
-             * Return the URI of site
-             * Return protocol, hostname and port if found
-             *
-            */
-            this.getDomain = function () {
-                var port = "",
-                    url = "";
-
-                if (window.location.port) {
-                    port = ":" + window.location.port;
-                }
-                url = window.location.protocol + "//" + window.location.hostname + port + "/";
-                return url;
-            };
-
-            /*
-             * This method will return the query string from the URL of the website
-             * Accept two parameters key, default_
-             *      key : The name of the key who's value need to be fetch
-             *      default_ : The default value which will return when nothing will found or key does not exists.
-             *          If not pass anything then it will return blank value.
-            */
-            this.getQueryString = function (key, default_) {
-                if (default_ === null) {
-                    default_ = "";
-                }
-
-                key = key.replace(/\[/,"\\[").replace(/\]/,"\\]");
-                var regex = new RegExp("[\\?&]" + key + "=([^&#]*)"),
-                    qs = regex.exec(window.location.href);
-
-                if (qs === null) {
-                    return default_;
-                } else {
-                    return qs[1];
-                }
-            };
-
-            /*
              * This method will check for blank value in the provided string
              * This will return true if provided string contain blank value and false if not
             */
@@ -273,13 +234,13 @@
                 return this; /*returning this from a method is a common way to allow "chaining" of methods together*/
             };
 
-            return this.init(); /*this refer to MODULE.helper.init()*/
+            return this.init(); /*this refer to JSB.helper.init()*/
         }
 
         return new _helper(); /*creating a new object of helper rather then a funtion*/
     }());
 
 /**
- * Check to evaluate whether 'MODULE' exists in the global namespace - if not, assign window.MODULE an object literal
+ * Check to evaluate whether 'JSB' exists in the global namespace - if not, assign window.JSB an object literal
  */
-}(window.MODULE = window.MODULE || {}, jQuery));
+}(window.JSB = window.JSB || {}, jQuery));
