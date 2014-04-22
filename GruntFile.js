@@ -51,7 +51,8 @@ module.exports = function(grunt) {
         jsb: {
             // Configurable paths
             app: 'src',
-            dist: 'dist'
+            dist: 'dist',
+            test: 'test'
         },
         // Empties folders to start fresh
         clean: {
@@ -224,7 +225,7 @@ module.exports = function(grunt) {
         // Watches files for changes and runs tasks based on the changed files
         watch: {
             js: {
-                files: ['<%= jsb.app %>/scripts/{,*/}*.js'],
+                files: ['<%= jsb.app %>/scripts/{,*/}*.js', 'Gruntfile.js'],
                 tasks: ['jshint'],
                 options: {
                     livereload: true
@@ -251,7 +252,7 @@ module.exports = function(grunt) {
                 tasks: ['compass:server', 'autoprefixer']
             },
             watch: {
-                files: 'src/js/**/*.js',
+                files: '<%= jsb.test %>/unit/**/*.js',
                 tasks: ['jasmine']
             }
         },
@@ -355,7 +356,7 @@ module.exports = function(grunt) {
                 specs: 'test/unit/**/*.js',
                 //helpers: ['src/js/_.config.js'],
                 keepRunner: true,
-                // host : 'http://127.0.0.1:8000/',
+                host : 'http://127.0.0.1:8000/',
                 // summary: true,
                 vendor: [
                     "src/js/libs/*.js"
@@ -364,7 +365,7 @@ module.exports = function(grunt) {
             }
             // watch: {
             //     pivotal: {
-            //         files: ['src/js/*.js','test/unit/**/*.js'],
+            //         files: ['<%= jsb.app %>/js/*.js','<%= jsb.test %>/unit/**/*.js'],
             //         tasks: 'jasmine:pivotal:build'
             //     }
             // }
@@ -379,7 +380,7 @@ module.exports = function(grunt) {
     grunt.registerTask('server', [
         'open',
         'connect:client',
-        'watch:client'
+        'watch:client',
     ]);
 
     // The default task can be run just by typing "grunt" on the command line

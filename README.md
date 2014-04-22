@@ -12,7 +12,7 @@ JavaScript Boilerplate is the collection of best practices using a design patter
 
 3. `src/js/_helper.js` - Helper utility functions that are required across different modules or even within a single module.
 
-4. `src/js/_main.js` - It defines the main module. We have used IIFE (Intermediately invoking function expression) namespacing and global abatement in this logic. MODULE is main namespace that has been defined and MODULE.helper is one of the components.
+4. `src/js/_main.js` - It defines the main module. We have used IIFE (Intermediately invoking function expression) namespacing and global abatement in this logic. JSB is main namespace that has been defined and JSB.helper is one of the components.
 
 5. `src/css/style.css` - Style sheets for the html help file.
 
@@ -22,20 +22,20 @@ JavaScript Boilerplate is the collection of best practices using a design patter
 
     The starting point is the `src/js/_main.js` file which has defined the main module and the component to be used. If you were to observe the code,
 
-        (function (MODULE, $, undefined) {
+        (function (JSB, $, undefined) {
 
             ...... (2)
 
-        })(window.MODULE = window.MODULE || {}, jQuery);
+        })(window.JSB = window.JSB || {}, jQuery);
 
-    The above code defines the `MODULE` namespace and also passes true values of `jquery` and `undefined` to the inner component. Instead of `MODULE` you can define your project name or application name as well and that would become your global namespace under which all the other components should be declared/defined. For e.g. if it is a project name `MYPROJECT` instead of `MODULE` you can even write `MYPROJECT` as well.
+    The above code defines the `JSB` namespace and also passes true values of `jquery` and `undefined` to the inner component. Instead of `JSB` you can define your project name or application name as well and that would become your global namespace under which all the other components should be declared/defined. For e.g. if it is a project name `MYPROJECT` instead of `JSB` you can even write `MYPROJECT` as well.
 
     Once you have defined the wrapper (global namespace), you can start of modules inside the global namespace.
 
 2. The second step would be to define the components, which can be page level or widget level too.
 
 
-    MODULE.subModule = (function () {
+    JSB.subModule = (function () {
         function _subModule() {
         ... (3)
         }
@@ -43,16 +43,16 @@ JavaScript Boilerplate is the collection of best practices using a design patter
      })();
 
 
-   The above code has defined a component called helper as a sub module of `MODULE` namespace. `MODULE.helper` holds an object that gets returned through `new _subModule()`. We can define all the functions that we want for the helper module inside the function `_subModule()`.
+   The above code has defined a component called helper as a sub module of `JSB` namespace. `JSB.helper` holds an object that gets returned through `new _subModule()`. We can define all the functions that we want for the helper module inside the function `_subModule()`.
 
 
 3. The third step would be to define the private values, private functions , priviledged functions etc. within the `_subModule` function. Comments have been provided as to which one is a private function and which is a priviledged one. At the end of the function the `init()` function is exposed which in turn returns the object itself. When the object is returned all the priviledged functions are exposed along with it and are accessible outside.
 
 
 
-4. Next is the `src/js/_config.js` file, which has all the global parameters that needs to be leveraged across the application. Think of this file/module as a container file to define your global variables, URLS etc. It is globally available inside the `MODULE` namespace and we can access the parameters by specifying `MODULE.config.param` to get its value in any other component. Here it has been primarily defined as an object literal as everything needs to be exposed globally.
+4. Next is the `src/js/_config.js` file, which has all the global parameters that needs to be leveraged across the application. Think of this file/module as a container file to define your global variables, URLS etc. It is globally available inside the `JSB` namespace and we can access the parameters by specifying `JSB.config.param` to get its value in any other component. Here it has been primarily defined as an object literal as everything needs to be exposed globally.
 
-5. For creating utility methods to be used across application, you can leverage the `src/js/_helper.js` file. It works on the same principle as the `src/js/_main.js`. For E.g. the way to access a helper function outside the module would be `MODULE.helper.getCookie` for the `getCookie` function.
+5. For creating utility methods to be used across application, you can leverage the `src/js/_helper.js` file. It works on the same principle as the `src/js/_main.js`. For E.g. the way to access a helper function outside the module would be `JSB.helper.getCookie` for the `getCookie` function.
 
 
 ## Quick start

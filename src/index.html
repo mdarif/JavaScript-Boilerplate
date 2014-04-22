@@ -66,7 +66,7 @@
                     </p>
                     <section class="example">
 <pre><code class="language-javascript">var str = "http://localhost.com/mywebsite/?name=NAME&age=AGE&company=COMPANY";
-MODULE.helper.multiReplace(str, {
+JSB.helper.multiReplace(str, {
     "NAME" : "Sam",
     "AGE" : "26yrs",
     "COMPANY" : "Sapient"
@@ -82,7 +82,7 @@ MODULE.helper.multiReplace(str, {
                         Apply css to any element. Pass the name of element and the CSS in JSON format.
                     </p>
                     <section class="example">
-<pre><code class="language-javascript">MODULE.helper.setCSS("main", {
+<pre><code class="language-javascript">JSB.helper.setCSS("main", {
     "width" : "300px",
     "background" : "red",
     "padding" : "10px"
@@ -96,7 +96,7 @@ MODULE.helper.multiReplace(str, {
                         Check if the given element has given class assign or not.
                     </p>
                     <section class="example">
-                        <pre><code class="language-javascript">MODULE.helper.hasClass("main", "my_element");</code></pre>
+                        <pre><code class="language-javascript">JSB.helper.hasClass("main", "my_element");</code></pre>
                     </section>
                 </article>
 
@@ -106,7 +106,7 @@ MODULE.helper.multiReplace(str, {
                          Add class to the given element.
                     </p>
                     <section class="example">
-                        <pre><code class="language-javascript">MODULE.helper.addClass("main", "my_element2");</code></pre>
+                        <pre><code class="language-javascript">JSB.helper.addClass("main", "my_element2");</code></pre>
                     </section>
                 </article>
 
@@ -116,7 +116,7 @@ MODULE.helper.multiReplace(str, {
                          Remove class from the given element.
                     </p>
                     <section class="example">
-                        <pre><code class="language-javascript">MODULE.helper.removeClass("main", "my_element2");</code></pre>
+                        <pre><code class="language-javascript">JSB.helper.removeClass("main", "my_element2");</code></pre>
                     </section>
                 </article>
 
@@ -126,7 +126,7 @@ MODULE.helper.multiReplace(str, {
                         Return the URI of site. Return protocol, hostname and port if found.
                     </p>
                     <section class="example">
-                        <pre><code class="language-javascript">MODULE.helper.getDomain();</code></pre>
+                        <pre><code class="language-javascript">JSB.helper.getDomain();</code></pre>
                     </section>
                 </article>
 
@@ -138,7 +138,7 @@ MODULE.helper.multiReplace(str, {
                     <section class="example">
                         <pre>Copy "?name=RSR&age=26" and paste this at the address bar of the website and press enter.</pre>
 
-<pre><code class="language-javascript">MODULE.helper.getQueryString("name", "Not Found.");</code></pre>
+<pre><code class="language-javascript">JSB.helper.getQueryString("name", "Not Found.");</code></pre>
                     </section>
                 </article>
 
@@ -149,7 +149,7 @@ MODULE.helper.multiReplace(str, {
                     </p>
                     <section class="example">
                         <pre><code class="language-javascript">var test = " ";
-MODULE.helper.isBlank(test);</code></pre>
+JSB.helper.isBlank(test);</code></pre>
                     </section>
                 </article>
 
@@ -159,7 +159,7 @@ MODULE.helper.isBlank(test);</code></pre>
                         Store information to client machine using HTML5 localStorate method.
                     </p>
                     <section class="example">
-                        <pre><code class="language-javascript">MODULE.helper.setInfo("name", "RSR");</code></pre>
+                        <pre><code class="language-javascript">JSB.helper.setInfo("name", "RSR");</code></pre>
                     </section>
                 </article>
 
@@ -169,7 +169,7 @@ MODULE.helper.isBlank(test);</code></pre>
                         Get information from client machine. Get information for HTML5 localstorage if available else get information from cookie.
                     </p>
                     <section class="example">
-                        <pre><code class="language-javascript">MODULE.helper.getInfo("name");</code></pre>
+                        <pre><code class="language-javascript">JSB.helper.getInfo("name");</code></pre>
                     </section>
                 </article>
 
@@ -179,7 +179,7 @@ MODULE.helper.isBlank(test);</code></pre>
                         Remove information from client machine.
                     </p>
                     <section class="example">
-                        <pre><code class="language-javascript">MODULE.helper.removeInfo("name");</code></pre>
+                        <pre><code class="language-javascript">JSB.helper.removeInfo("name");</code></pre>
                     </section>
                 </article>
           	</section>

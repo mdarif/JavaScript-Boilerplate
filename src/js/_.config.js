@@ -1,6 +1,7 @@
 /* JavaScript Boilerplate configuration file *
- * @version 1.1
+ * @version 1.2
  * GIT URL - https://github.com/mdarif/JavaScript-Boilerplate
+ * Author - Mohammed Arif
  */
 
  /* Why do we need config?

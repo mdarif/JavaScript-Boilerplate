@@ -132,6 +132,31 @@ describe("Test main js file", function() {
 		});
 	});
 
+	describe("let's get the domain name", function() {
+		it("test protocol", function() {
+			expect(window.location.protocol).toContain("http");
+		});
+
+	});
+
+	describe("test query strings", function() {
+		var name;
+		xit("check the output", function() {
+			expect(JSB.subHelper.getQueryString(name, 'Arif')).toEqual("Arif");
+		});
+
+		beforeEach(function() {
+			spyOn(JSB.subHelper, 'getQueryString');
+			JSB.subHelper.getQueryString(name, 'Arif');
+		});
+
+		it("tracks that the spy was called", function() {
+			//Let's tracks calls to it and all arguments through spyOn method.
+			expect(JSB.subHelper.getQueryString).toHaveBeenCalled();
+		});
+
+	});
+
 
 	// describe("Facebook", function() {
 	// 	it("is FB available (i.e. is facebook library included)", function() {

@@ -6,6 +6,7 @@
   "newcap":false,
   "globals": {
         "jQuery": true,
+        "JSB": true,
         "$": true,
         "console": true,
         "module": true,

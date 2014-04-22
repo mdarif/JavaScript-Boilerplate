@@ -1,6 +1,7 @@
 /* JavaScript Boilerplate main scripting file *
- * @version 1.1
+ * @version 1.2
  * GIT URL - https://github.com/mdarif/JavaScript-Boilerplate
+ * Author - Mohammed Arif
  */
 
 /* JSB (our namespace name) and undefined are passed here
@@ -81,8 +82,8 @@
      * It is possible to put parentheses around this structure to instantiate it immediately after it's parsed.
      * This way it's always present when the script is executed and doesn't have to be instantiated separately.
      */
-    JSB.helper = (function() {
-        function _helper() {
+    JSB.subHelper = (function() {
+        function _subHelper() {
 
             /**
              * In non-strict mode, 'this' is bound to the global scope when it isn't bound to anything else.
@@ -137,12 +138,12 @@
              */
             this.init = function() {
                 _this.getDomain();
-                return this; /*this refer to JSB.subModule*/
+                return this; /*this refer to JSB.subHelper*/
             };
 
             return this.init(); /*initialize the init()*/
         }
-        return new _helper(); /*creating a new object of subModule rather then a funtion*/
+        return new _subHelper(); /*creating a new object of subHelper rather then a funtion*/
     }());
 
     /**
