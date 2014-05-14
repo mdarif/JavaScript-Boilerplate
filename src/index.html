@@ -10,8 +10,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <!-- build:css css/style.min.css -->
+        <!-- build:css(.tmp) css/style.min.css -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/prism.css">
         <!-- endbuild -->
 
         <!--[if lt IE 9]>
@@ -27,31 +28,31 @@
                     <ul>
                         <li>
                             <strong>Private variables</strong>
-                            are declared with the 'var' keyword inside the object, and can only be accessed by private functions and privileged methods.
+                            are declared with the <code class="language-javascript">'var'</code> keyword inside the object, and can only be accessed by private functions and privileged methods.
                         </li>
                         <li>
                             <strong>Private functions</strong>
-                            are declared inline inside the object's constructor (or alternatively may be defined via var functionName=function(){...}) and may only be called by privileged methods (including the object's constructor).
+                            are declared inline inside the object's constructor (or alternatively may be defined via <code class="language-javascript"> var functionName=function(){...}) </code>and may only be called by privileged methods (including the object's constructor).
                         </li>
                         <li>
                             <strong>Privileged methods</strong>
-                            are declared with this.methodName=function(){...} and may invoked by code external to the object.
+                            are declared with <code class="language-javascript">this.methodName=function(){...}</code> and may invoked by code external to the object.
                         </li>
                         <li>
                             <strong>Public properties</strong>
-                            are declared with this.variableName and may be read/written from outside the object.
+                            are declared with <code class="language-javascript">this.variableName</code> and may be read/written from outside the object.
                         </li>
                         <li>
                             <strong>Public methods</strong>
-                            are defined by Classname.prototype.methodName = function(){...} and may be called from outside the object.
+                            are defined by <code class="language-javascript">Classname.prototype.methodName = function(){...}</code> and may be called from outside the object.
                         </li>
                         <li>
                             <strong>Prototype properties</strong>
-                            are defined by Classname.prototype.propertyName = someValue
+                            are defined by <code class="language-javascript">Classname.prototype.propertyName = someValue</code>
                         </li>
                         <li>
                             <strong>Static properties</strong>
-                            are defined by Classname.propertyName = someValue
+                            are defined by <code class="language-javascript">Classname.propertyName = someValue</code>
                         </li>
                     </ul>
                 </article>
@@ -64,15 +65,15 @@
                         Replace multiple value in a single string. Return the new string at the end. You can pass regExe also.
                     </p>
                     <section class="example">
-<pre>var str = "http://localhost.com/mywebsite/?name=NAME&age=AGE&company=COMPANY";
-MODULE.helper.multiReplace(str, {
+<pre><code class="language-javascript">var str = "http://localhost.com/mywebsite/?name=NAME&age=AGE&company=COMPANY";
+JSB.helper.multiReplace(str, {
     "NAME" : "Sam",
     "AGE" : "26yrs",
     "COMPANY" : "Sapient"
-});
+});</code></pre>
 
 <strong>Final Output :</strong>
-http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
+<pre><code class="language-javascript">http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</code></pre>
                     </section>
                 </article>
                 <article>
@@ -81,11 +82,11 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                         Apply css to any element. Pass the name of element and the CSS in JSON format.
                     </p>
                     <section class="example">
-<pre>MODULE.helper.setCSS("main", {
+<pre><code class="language-javascript">JSB.helper.setCSS("main", {
     "width" : "300px",
     "background" : "red",
     "padding" : "10px"
-});</pre>
+});</code></pre>
                     </section>
                 </article>
 
@@ -95,7 +96,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                         Check if the given element has given class assign or not.
                     </p>
                     <section class="example">
-                        <pre>MODULE.helper.hasClass("main", "my_element");</pre>
+                        <pre><code class="language-javascript">JSB.helper.hasClass("main", "my_element");</code></pre>
                     </section>
                 </article>
 
@@ -105,7 +106,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                          Add class to the given element.
                     </p>
                     <section class="example">
-                        <pre>MODULE.helper.addClass("main", "my_element2");</pre>
+                        <pre><code class="language-javascript">JSB.helper.addClass("main", "my_element2");</code></pre>
                     </section>
                 </article>
 
@@ -115,7 +116,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                          Remove class from the given element.
                     </p>
                     <section class="example">
-                        <pre>MODULE.helper.removeClass("main", "my_element2");</pre>
+                        <pre><code class="language-javascript">JSB.helper.removeClass("main", "my_element2");</code></pre>
                     </section>
                 </article>
 
@@ -125,7 +126,7 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                         Return the URI of site. Return protocol, hostname and port if found.
                     </p>
                     <section class="example">
-                        <pre>MODULE.helper.getDomain();</pre>
+                        <pre><code class="language-javascript">JSB.helper.getDomain();</code></pre>
                     </section>
                 </article>
 
@@ -135,9 +136,9 @@ http://localhost.com/mywebsite/?name=Sam&age=26yrs&company=Sapient</pre>
                         This method will return the query string from the URL of the website.
                     </p>
                     <section class="example">
-                        <pre>Copy "?name=RSR&age=26" and paste this at the address bar of the website and press enter.
+                        <pre>Copy "?name=RSR&age=26" and paste this at the address bar of the website and press enter.</pre>
 
-MODULE.helper.getQueryString("name", "Not Found.");</pre>
+<pre><code class="language-javascript">JSB.helper.getQueryString("name", "Not Found.");</code></pre>
                     </section>
                 </article>
 
@@ -147,8 +148,8 @@ MODULE.helper.getQueryString("name", "Not Found.");</pre>
                         This method will check for blank value in the provided string. This will return true if provided string contain blank value and false if not.
                     </p>
                     <section class="example">
-                        <pre>var test = "      ";
-MODULE.helper.isBlank(test);</pre>
+                        <pre><code class="language-javascript">var test = " ";
+JSB.helper.isBlank(test);</code></pre>
                     </section>
                 </article>
 
@@ -158,7 +159,7 @@ MODULE.helper.isBlank(test);</pre>
                         Store information to client machine using HTML5 localStorate method.
                     </p>
                     <section class="example">
-                        <pre>MODULE.helper.setInfo("name", "RSR");</pre>
+                        <pre><code class="language-javascript">JSB.helper.setInfo("name", "RSR");</code></pre>
                     </section>
                 </article>
 
@@ -168,7 +169,7 @@ MODULE.helper.isBlank(test);</pre>
                         Get information from client machine. Get information for HTML5 localstorage if available else get information from cookie.
                     </p>
                     <section class="example">
-                        <pre>MODULE.helper.getInfo("name");</pre>
+                        <pre><code class="language-javascript">JSB.helper.getInfo("name");</code></pre>
                     </section>
                 </article>
 
@@ -178,7 +179,7 @@ MODULE.helper.isBlank(test);</pre>
                         Remove information from client machine.
                     </p>
                     <section class="example">
-                        <pre>MODULE.helper.removeInfo("name");</pre>
+                        <pre><code class="language-javascript">JSB.helper.removeInfo("name");</code></pre>
                     </section>
                 </article>
           	</section>
@@ -212,17 +213,18 @@ MODULE.helper.isBlank(test);</pre>
         </div>
 	<!-- JavaScript at the bottom for fast page loading -->
 
-	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/libs/jquery.js"><\/script>')</script>
+	   <!-- build:js js/vendor.js -->
+	   <script src="js/libs/jquery.js"></script>
+       <script src="js/libs/prism.js"></script>
+       <!-- endbuild -->
 
         <!-- build:js js/javascript-boilerplate.min.js -->
-        <!-- Project specfic config goes here - projectname.config.js -->
-    	<script src="js/_.config.js"></script>
-        <!-- Main is the JS Boilerplate for the project - projectname.main.js -->
-    	<script src="js/_.main.js"></script>
-        <!-- Common functions can be placed in helper file - projectname.helper.js -->
-        <script src="js/_.helper.js"></script>
+            <!-- Project specfic config goes here - projectname.config.js -->
+            <script src="js/_.config.js"></script>
+            <!-- Main is the JS Boilerplate for the project - projectname.main.js -->
+            <script src="js/_.main.js"></script>
+            <!-- Common functions can be placed in helper file - projectname.helper.js -->
+            <script src="js/_.helper.js"></script>
         <!-- endbuild -->
 
     </body>

@@ -4,6 +4,15 @@ dist
 *~
 *.diff
 *.patch
+/*.txt
+/*.csv
 /*.html
 .DS_Store
+.sizecache.json
 node_modules
+.sass-cache/
+.tmp/
+src/css/style.scss
+jsb.sublime-project
+jsb.sublime-workspace
+.grunt

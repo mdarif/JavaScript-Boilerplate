@@ -1,6 +1,7 @@
 /* JavaScript Boilerplate configuration file *
- * @version 1.1
+ * @version 1.2
  * GIT URL - https://github.com/mdarif/JavaScript-Boilerplate
+ * Author - Mohammed Arif
  */
 
  /* Why do we need config?
@@ -12,9 +13,9 @@
   * Any value that may change in the future
   */
 
-(function (MODULE, $, undefined) {
+(function (JSB, $, undefined) {
 
-	MODULE.config = {
+	JSB.config = {
 		language: 'english',
         debug: true,
 		appId: '150352665021939',
@@ -48,6 +49,6 @@
 	};
 
 /**
- * Check to evaluate whether 'MODULE' exists in the global namespace - if not, assign window.MODULE an object literal.
+ * Check to evaluate whether 'JSB' exists in the global namespace - if not, assign window.JSB an object literal.
  */
-}(window.MODULE = window.MODULE || {}, jQuery));
+}(window.JSB = window.JSB || {}, jQuery));
