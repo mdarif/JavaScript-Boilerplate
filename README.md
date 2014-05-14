@@ -46,7 +46,7 @@ JavaScript Boilerplate is the collection of best practices using a design patter
    The above code has defined a component called helper as a sub module of `JSB` namespace. `JSB.helper` holds an object that gets returned through `new _subModule()`. We can define all the functions that we want for the helper module inside the function `_subModule()`.
 
 
-3. The third step would be to define the private values, private functions , priviledged functions etc. within the `_subModule` function. Comments have been provided as to which one is a private function and which is a priviledged one. At the end of the function the `init()` function is exposed which in turn returns the object itself. When the object is returned all the priviledged functions are exposed along with it and are accessible outside.
+3. The third step would be to define the private values, private functions , privileged functions etc. within the `_subModule` function. Comments have been provided as to which one is a private function and which is a privileged one. At the end of the function the `init()` function is exposed which in turn returns the object itself. When the object is returned all the privileged functions are exposed along with it and are accessible outside.
 
 
 
@@ -106,7 +106,7 @@ You should be able to see the below message for a successful build and a folder 
 
     $ grunt test
 
-We use jasmine as a unit testing framework to test our boilerplate code, as of now it's been only done for _.main.js, you would get all the test done in the next release.
+We use jasmine as a unit testing framework to test our boilerplate code, as of now it's been only done for `_.main.js`, you would get all the test done in the next release.
 
 
 ## Contributing
@@ -130,7 +130,7 @@ Anyone and everyone is welcome to [contribute](#).
 * JavaScript syntax highlighting has been added
 * `MODULE` has been renamed to `JSB` for better JavaScript semantics
 * Travis CI has been kicked off from the current version (v1.2)
-* Made several small changes like `use strict`, dir changes, css fixes, added additional grunt plugins
+* Made several small changes like `use strict`, dir changes, css fixes, added additional grunt plugins etc.
 
 
 ## Author
