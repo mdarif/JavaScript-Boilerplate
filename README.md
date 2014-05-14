@@ -123,6 +123,16 @@ Anyone and everyone is welcome to [contribute](#).
 
 * MIT/GPL license
 
+
+## What's new in v1.2?
+* Have added the Jasmine Test Suite to unit test the boilerplate code with or without PhantomJS, one can fire up the same through Chrome as well
+* Grunt build has been enhanced tremendously
+* JavaScript syntax highlighting has been added
+* `MODULE` has been renamed to `JSB` for better JavaScript semantics
+* Travis CI has been kicked off from the current version (v1.2)
+* Made several small changes like `use strict`, dir changes, css fixes, added additional grunt plugins
+
+
 ## Author
 
 * Mohammed Arif [@arif_iq](http://twitter.com/arif_iq), [github](https://github.com/mdarif)
