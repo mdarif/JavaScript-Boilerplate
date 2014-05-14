@@ -102,6 +102,12 @@ You should be able to see the below message for a successful build and a folder 
 
     Done, without errors.
 
+### Testing
+
+    $ grunt test
+
+We use jasmine as a unit testing framework to test our boilerplate code, as of now it's been only done for _.main.js, you would get all the test done in the next release.
+
 
 ## Contributing
 
@@ -116,11 +122,6 @@ Anyone and everyone is welcome to [contribute](#).
 ## License
 
 * MIT/GPL license
-
-## Change Log
-
-
-
 
 ## Author
 

@@ -4,6 +4,8 @@ dist
 *~
 *.diff
 *.patch
+/*.txt
+/*.csv
 /*.html
 .DS_Store
 .sizecache.json
