@@ -1,10 +1,18 @@
-# [JavaScript Boilerplate v1.2](https://github.com/mdarif/JavaScript-Boilerplate) [![Build Status](https://travis-ci.org/mdarif/JavaScript-Boilerplate.svg?branch=1.2)](https://travis-ci.org/mdarif/JavaScript-Boilerplate)
+# JavaScript Boilerplate v1.2
+
+[![Version][version-image]][version-url] [![Build Status][build-image]][build-url] [![Dependency Status][dependencies-image]][dependencies-url] [![License][license-image]][license-url]
 
 JavaScript Boilerplate is the collection of best practices using a design pattern (Global Abatement) with the use of defined namespaces that would help you to protect our code. It is developed in a modular way with some commonly used utility methods provided that you would find useful for common operations. It is equipped with the configuration file in the form of an object literal that can be used to store global objects, config ids, URLs or textual strings. This framework has been designed to work as a ready to use template that you can build further in your projects as needed as it outlines the framework neatly and exhibits an approach to extend it.
 
+## What's new in v1.2?
+* Have added the Jasmine Test Suite to unit test the boilerplate code with or without PhantomJS, one can fire up the same through Chrome as well
+* Grunt build has been enhanced tremendously
+* JavaScript syntax highlighting has been added
+* `MODULE` has renamed to `JSB` for better JavaScript semantics
+* Travis CI has been kicked off
+* Made several small changes like `use strict`, dir changes, css fixes, additional grunt plug-ins also have been added etc.
 
 ## Files in Repository
-
 
 1. `src/index.html` - An html help file illustrating helper functions.
 
@@ -124,15 +132,18 @@ Anyone and everyone is welcome to [contribute](#).
 * MIT/GPL license
 
 
-## What's new in v1.2?
-* Have added the Jasmine Test Suite to unit test the boilerplate code with or without PhantomJS, one can fire up the same through Chrome as well
-* Grunt build has been enhanced tremendously
-* JavaScript syntax highlighting has been added
-* `MODULE` has been renamed to `JSB` for better JavaScript semantics
-* Travis CI has been kicked off from the current version (v1.2)
-* Made several small changes like `use strict`, dir changes, css fixes, added additional grunt plugins etc.
-
-
 ## Author
 
 * Mohammed Arif [@arif_iq](http://twitter.com/arif_iq), [github](https://github.com/mdarif)
+
+[build-image]:            http://img.shields.io/travis/mdarif/JavaScript-Boilerplate.svg?style=flat
+[build-url]:              http://travis-ci.org/mdarif/JavaScript-Boilerplate
+
+[dependencies-image]:     http://img.shields.io/gemnasium/CaryLandholt/AngularFun.svg?style=flat
+[dependencies-url]:       https://gemnasium.com/CaryLandholt/AngularFun
+
+[license-image]:          http://img.shields.io/badge/license-MIT/GPL-blue.svg?style=flat
+[license-url]:            LICENSE
+
+[version-image]:          http://img.shields.io/github/tag/mdarif/JavaScript-Boilerplate.svg?style=flat
+[version-url]:            https://github.com/mdarif/JavaScript-Boilerplate/tags
