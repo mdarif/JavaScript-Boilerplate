@@ -139,8 +139,8 @@ Anyone and everyone is welcome to [contribute](#).
 [build-image]:            http://img.shields.io/travis/mdarif/JavaScript-Boilerplate.svg?style=flat
 [build-url]:              http://travis-ci.org/mdarif/JavaScript-Boilerplate
 
-[dependencies-image]:     http://img.shields.io/gemnasium/CaryLandholt/AngularFun.svg?style=flat
-[dependencies-url]:       https://gemnasium.com/CaryLandholt/AngularFun
+[dependencies-image]:     http://img.shields.io/gemnasium/mdarif/JavaScript-Boilerplate.svg?style=flat
+[dependencies-url]:       https://gemnasium.com/mdarif/JavaScript-Boilerplate
 
 [license-image]:          http://img.shields.io/badge/license-MIT/GPL-blue.svg?style=flat
 [license-url]:            LICENSE
