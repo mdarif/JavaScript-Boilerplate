@@ -128,8 +128,7 @@ Anyone and everyone is welcome to [contribute](#).
 
 
 ## License
-
-* MIT/GPL license
+See [LICENSE](LICENSE)
 
 
 ## Author
@@ -142,7 +141,7 @@ Anyone and everyone is welcome to [contribute](#).
 [dependencies-image]:     http://img.shields.io/gemnasium/mdarif/JavaScript-Boilerplate.svg?style=flat
 [dependencies-url]:       https://gemnasium.com/mdarif/JavaScript-Boilerplate
 
-[license-image]:          http://img.shields.io/badge/license-MIT/GPL-blue.svg?style=flat
+[license-image]:          http://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]:            LICENSE
 
 [version-image]:          http://img.shields.io/github/tag/mdarif/JavaScript-Boilerplate.svg?style=flat
