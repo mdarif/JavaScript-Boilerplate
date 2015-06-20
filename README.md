@@ -1,6 +1,6 @@
 # JavaScript Boilerplate v1.2
 
-[![Build Status][build-image]][build-url]   [![Dependency Status][dependencies-image]][dependencies-url]   [![License][license-image]][license-url]   [![Version][version-image]][version-url]
+[![Build Status][build-image]][build-url]   [![Dependency Status][dependencies-image]][dependencies-url]   [![License][license-image]][license-url]   [![Version][version-image]][version-url] [![Code Climate](https://codeclimate.com/repos/558392546956804e780009ea/badges/9cb6feeef61e41a567ad/gpa.svg)](https://codeclimate.com/repos/558392546956804e780009ea/feed)
 
 JavaScript Boilerplate is the collection of best practices using a design pattern (Global Abatement) with the use of defined namespaces that would help you to protect our code. It is developed in a modular way with some commonly used utility methods provided that you would find useful for common operations. It is equipped with the configuration file in the form of an object literal that can be used to store global objects, config ids, URLs or textual strings. This framework has been designed to work as a ready to use template that you can build further in your projects as needed as it outlines the framework neatly and exhibits an approach to extend it.
 
@@ -28,27 +28,27 @@ JavaScript Boilerplate is the collection of best practices using a design patter
 
 1. Clone the repository using the quick start guide. To get started include the JS files in your js directory.
 
-    The starting point is the `src/js/_main.js` file which has defined the main module and the component to be used. If you were to observe the code,
+	The starting point is the `src/js/_main.js` file which has defined the main module and the component to be used. If you were to observe the code,
 
-        (function (JSB, $, undefined) {
+		(function (JSB, $, undefined) {
 
-            ...... (2)
+			...... (2)
 
-        })(window.JSB = window.JSB || {}, jQuery);
+		})(window.JSB = window.JSB || {}, jQuery);
 
-    The above code defines the `JSB` namespace and also passes true values of `jquery` and `undefined` to the inner component. Instead of `JSB` you can define your project name or application name as well and that would become your global namespace under which all the other components should be declared/defined. For e.g. if it is a project name `MYPROJECT` instead of `JSB` you can even write `MYPROJECT` as well.
+	The above code defines the `JSB` namespace and also passes true values of `jquery` and `undefined` to the inner component. Instead of `JSB` you can define your project name or application name as well and that would become your global namespace under which all the other components should be declared/defined. For e.g. if it is a project name `MYPROJECT` instead of `JSB` you can even write `MYPROJECT` as well.
 
-    Once you have defined the wrapper (global namespace), you can start of modules inside the global namespace.
+	Once you have defined the wrapper (global namespace), you can start of modules inside the global namespace.
 
 2. The second step would be to define the components, which can be page level or widget level too.
 
 
-    JSB.subModule = (function () {
-        function _subModule() {
-        ... (3)
-        }
-        return new _subModule()
-     })();
+	JSB.subModule = (function () {
+		function _subModule() {
+		... (3)
+		}
+		return new _subModule()
+	 })();
 
 
    The above code has defined a component called helper as a sub module of `JSB` namespace. `JSB.helper` holds an object that gets returned through `new _subModule()`. We can define all the functions that we want for the helper module inside the function `_subModule()`.
@@ -69,27 +69,29 @@ Clone the git repo - `git clone git://github.com/mdarif/JavaScript-Boilerplate.g
 
 You can also get the JavaScript Boilerplate through npm if you have already installed node.
 
-    npm install javascript-boilerplate
+	npm install javascript-boilerplate
+
+*Make sure, you should have [node](https://nodejs.org/download/) installed on your machine before running `npm` command
 
 ## Grunt Build
 
 Install [Grunt](http://gruntjs.com/getting-started).
 
-OR 
+OR
 
 ###Follow the below instructions to install and setup the `Grunt`
 
 Install Grunt CLI, this will put the grunt command in your system path, allowing it to be run from any directory.
 
-    $ npm install -g grunt-cli
+	$ npm install -g grunt-cli
 
 Now install Grunt
 
-    $ npm install grunt
+	$ npm install grunt
 
 You should also install all the dependencies
 
-    $ npm install
+	$ npm install
 
 ###Follow the below instructions to install and setup the `compass task`
 _Run this task with the `grunt compass` command._
@@ -100,19 +102,19 @@ This task requires you to have [Ruby](http://www.ruby-lang.org/en/downloads/), [
 
 ### Fire up the grunt server command and see the preview in browser with live-reload enabled for `app` folder content
 
-    $ grunt server
+	$ grunt server
 
 ### Build the Project
 
-    $ grunt
+	$ grunt
 
 You should be able to see the below message for a successful build and a folder name `dist` has been created with all the expected output, parallel to `src` folder, with all the tasks completed.
 
-    Done, without errors.
+	Done, without errors.
 
 ### Testing
 
-    $ grunt test
+	$ grunt test
 
 We use jasmine as a unit testing framework to test our boilerplate code, as of now it's been only done for `_.main.js`, you would get all the test done in the next release.
 
