@@ -1,6 +1,6 @@
 # JavaScript Boilerplate v1.2
 
-[![Build Status][build-image]][build-url]   [![Dependency Status][dependencies-image]][dependencies-url]   [![License][license-image]][license-url]   [![Version][version-image]][version-url] [![Code Climate](https://codeclimate.com/repos/558392546956804e780009ea/badges/9cb6feeef61e41a567ad/gpa.svg)](https://codeclimate.com/repos/558392546956804e780009ea/feed)
+[![Build Status][build-image]][build-url]   [![Dependency Status][dependencies-image]][dependencies-url]   [![License][license-image]][license-url]   [![Version][version-image]][version-url] [![Code Climate][codeclimate-image]] [codeclimate-url]
 
 JavaScript Boilerplate is the collection of best practices using a design pattern (Global Abatement) with the use of defined namespaces that would help you to protect our code. It is developed in a modular way with some commonly used utility methods provided that you would find useful for common operations. It is equipped with the configuration file in the form of an object literal that can be used to store global objects, config ids, URLs or textual strings. This framework has been designed to work as a ready to use template that you can build further in your projects as needed as it outlines the framework neatly and exhibits an approach to extend it.
 
@@ -140,7 +140,7 @@ See [LICENSE](LICENSE)
 [build-image]:            http://img.shields.io/travis/mdarif/JavaScript-Boilerplate.svg?style=flat
 [build-url]:              http://travis-ci.org/mdarif/JavaScript-Boilerplate
 
-[dependencies-image]:     http://img.shields.io/gemnasium/mdarif/JavaScript-Boilerplate.svg?style=flat
+[dependencies-image]:     https://gemnasium.com/mdarif/JavaScript-Boilerplate.svg?style=flat
 [dependencies-url]:       https://gemnasium.com/mdarif/JavaScript-Boilerplate
 
 [license-image]:          http://img.shields.io/badge/license-MIT-blue.svg?style=flat
@@ -148,3 +148,7 @@ See [LICENSE](LICENSE)
 
 [version-image]:          http://img.shields.io/github/tag/mdarif/JavaScript-Boilerplate.svg?style=flat
 [version-url]:            https://github.com/mdarif/JavaScript-Boilerplate/tags
+
+[codeclimate-image]:      https://codeclimate.com/repos/558392546956804e780009ea/badges/9cb6feeef61e41a567ad/gpa.svg?style=flat
+[codeclimate-url]:        https://codeclimate.com/repos/558392546956804e780009ea/feed
+
