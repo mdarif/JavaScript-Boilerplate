@@ -23,10 +23,10 @@ module.exports = function(config) {
         // CLI --reporters progress
         reporters: ['progress'],
 
-        // coverageReporter: {
-        //     type: 'html',
-        //     dir: 'coverage/'
-        // },
+        coverageReporter: {
+            type: 'html',
+            dir: 'test/coverage/'
+        },
 
         // web server port
         // CLI --port 9876
@@ -39,6 +39,9 @@ module.exports = function(config) {
         // enable / disable colors in the output (reporters and logs)
         // CLI --colors --no-colors
         colors: true,
+
+        // level of logging
+        logLevel: config.LOG_INFO,
 
         // enable / disable watching file and executing tests whenever any file changes
         // CLI --auto-watch --no-auto-watch
@@ -61,7 +64,11 @@ module.exports = function(config) {
 
         // If browser does not capture in given timeout [ms], kill it
         // CLI --capture-timeout 5000
-        captureTimeout: 15000,
+        captureTimeout: 60000,
+
+        // Continuous Integration mode
+        // if true, it capture browsers, run tests and exit
+        singleRun: false,
 
         // report which specs are slower than 500ms
         // CLI --report-slower-than 500

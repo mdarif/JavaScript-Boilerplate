@@ -370,6 +370,39 @@ module.exports = function(grunt) {
 			//     }
 			// }
 		},
+
+		env: {
+			coverage: {
+				APP_DIR_FOR_CODE_COVERAGE: '../test/coverage/instrument/app/'
+			}
+		},
+		instrument: {
+			files: 'src/*.js',
+			options: {
+				lazy: true,
+				basePath: 'test/coverage/instrument/'
+			}
+		},
+		mochaTest: {
+			options: {
+				reporter: 'spec'
+			},
+			src: ['test/*.js']
+		},
+		storeCoverage: {
+			options: {
+				dir: 'test/coverage/reports'
+			}
+		},
+		makeReport: {
+			src: 'test/coverage/reports/**/*.json',
+			options: {
+				type: 'lcov',
+				dir: 'test/coverage/reports',
+				print: 'detail'
+			}
+		}
+
 	});
 	//
 
@@ -415,7 +448,20 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('test', [
 		'jshint',
-		'jasmine'
+		'jasmine',
+		'karma'
+	]);
+
+	grunt.registerTask('coverage', [
+		'env:coverage',
+		'instrument',
+		'mochaTest',
+		'storeCoverage',
+		'makeReport'
+	]);
+
+	grunt.registerTask('karma', [
+		'karma'
 	]);
 
 	// To debug the values
