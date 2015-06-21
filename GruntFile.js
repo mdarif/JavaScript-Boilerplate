@@ -54,6 +54,9 @@ module.exports = function(grunt) {
 			dist: 'dist',
 			test: 'test'
 		},
+		bin: {
+			coverage: 'test/bin/coverage'
+		},
 		// Empties folders to start fresh
 		clean: {
 			dist: {
@@ -351,58 +354,30 @@ module.exports = function(grunt) {
 			}
 		},
 		jasmine: {
-			src: 'src/js/*.js',
-			options: {
-				specs: 'test/unit/**/*.js',
-				//helpers: ['src/js/_.config.js'],
-				keepRunner: true,
-				//host : 'http://127.0.0.1:8000/',
-				// summary: true,
-				vendor: [
-					"src/js/libs/*.js"
-					//"http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
-				]
-			}
-			// watch: {
-			//     pivotal: {
-			//         files: ['<%= jsb.app %>/js/*.js','<%= jsb.test %>/unit/**/*.js'],
-			//         tasks: 'jasmine:pivotal:build'
-			//     }
-			// }
-		},
-
-		env: {
 			coverage: {
-				APP_DIR_FOR_CODE_COVERAGE: '../test/coverage/instrument/app/'
+				src: '<%= jsb.app %>/js/*.js',
+				options: {
+					specs: '<%= jsb.test %>/unit/**/*.js',
+					template: require('grunt-template-jasmine-istanbul'),
+					templateOptions: {
+						coverage: '<%= bin.coverage %>/coverage.json',
+						report: [{
+							type: 'html',
+							options: {
+								dir: '<%= bin.coverage %>/html'
+							}
+						}, {
+							type: 'cobertura',
+							options: {
+								dir: '<%= bin.coverage %>/cobertura'
+							}
+						}, {
+							type: 'text-summary'
+						}]
+					}
+				}
 			}
 		},
-		instrument: {
-			files: 'src/*.js',
-			options: {
-				lazy: true,
-				basePath: 'test/coverage/instrument/'
-			}
-		},
-		mochaTest: {
-			options: {
-				reporter: 'spec'
-			},
-			src: ['test/*.js']
-		},
-		storeCoverage: {
-			options: {
-				dir: 'test/coverage/reports'
-			}
-		},
-		makeReport: {
-			src: 'test/coverage/reports/**/*.json',
-			options: {
-				type: 'lcov',
-				dir: 'test/coverage/reports',
-				print: 'detail'
-			}
-		}
-
 	});
 	//
 
@@ -431,7 +406,7 @@ module.exports = function(grunt) {
 		'htmlmin',
 		//'sass',
 		'compare_size',
-		'test',
+		'test:coverage',
 		'notify:server'
 	]);
 
@@ -446,18 +421,8 @@ module.exports = function(grunt) {
 		'jsdoc'
 	]);
 
-	grunt.registerTask('test', [
-		'jshint',
-		'jasmine',
-		'karma'
-	]);
-
-	grunt.registerTask('coverage', [
-		'env:coverage',
-		'instrument',
-		'mochaTest',
-		'storeCoverage',
-		'makeReport'
+	grunt.registerTask('test:coverage', [
+		'jasmine:coverage'
 	]);
 
 	grunt.registerTask('karma', [
@@ -465,8 +430,8 @@ module.exports = function(grunt) {
 	]);
 
 	// To debug the values
-	// grunt.event.on('watch', function(action, filepath, target) {
-	// grunt.log.writeln(target + ': ' + filepath + ' has ' + action);
-	// });
+	grunt.event.on('watch', function(action, filepath, target) {
+	grunt.log.writeln(target + ': ' + filepath + ' has ' + action);
+	});
 
 };
