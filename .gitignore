@@ -16,3 +16,4 @@ src/css/style.scss
 jsb.sublime-project
 jsb.sublime-workspace
 .grunt
+test/bin

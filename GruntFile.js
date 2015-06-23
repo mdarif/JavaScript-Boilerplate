@@ -33,8 +33,10 @@ module.exports = function(grunt) {
 
 	'use strict';
 
-	// Load grunt tasks automatically
-	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+	// Load grunt tasks automatically excluding grunt-template-jasmine-istanbul
+	require('load-grunt-tasks')(grunt, {
+      pattern: ['grunt-*', '!grunt-template-jasmine-istanbul']
+    });
 
 	var plugins = ['karma-mocha'];
 	var browsers = [];

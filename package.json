@@ -51,7 +51,7 @@
     "karma-firefox-launcher": "~0.1.6",
     "karma-jasmine": "~0.3.5",
     "karma-phantomjs-launcher": "^0.2.0",
-    "matchdep": "~0.3.0",
+    "load-grunt-tasks": "^3.2.0",
     "time-grunt": "~1.2.1"
   },
   "version": "1.2.0",
