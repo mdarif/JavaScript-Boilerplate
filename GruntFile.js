@@ -408,7 +408,7 @@ module.exports = function(grunt) {
 		'htmlmin',
 		//'sass',
 		'compare_size',
-		'test:coverage',
+		'test',
 		'notify:server'
 	]);
 
@@ -423,8 +423,9 @@ module.exports = function(grunt) {
 		'jsdoc'
 	]);
 
-	grunt.registerTask('test:coverage', [
-		'jasmine:coverage'
+	grunt.registerTask('test', [
+		'jshint',
+		'jasmine'
 	]);
 
 	grunt.registerTask('karma', [
