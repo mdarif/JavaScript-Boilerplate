@@ -35,8 +35,8 @@ module.exports = function(grunt) {
 
 	// Load grunt tasks automatically excluding grunt-template-jasmine-istanbul
 	require('load-grunt-tasks')(grunt, {
-      pattern: ['grunt-*', '!grunt-template-jasmine-istanbul']
-    });
+		pattern: ['grunt-*', '!grunt-template-jasmine-istanbul']
+	});
 
 	var plugins = ['karma-mocha'];
 	var browsers = [];
@@ -352,7 +352,9 @@ module.exports = function(grunt) {
 		},
 		karma: {
 			unit: {
-				configFile: 'test/karma.conf.js'
+				configFile: 'karma.conf.js',
+				background: true, //The background option will tell grunt to run karma in a child process so it doesn't block subsequent grunt tasks.
+				singleRun: false //The singleRun: false option will tell grunt to keep the karma server up after a test run.
 			}
 		},
 		jasmine: {
@@ -437,7 +439,7 @@ module.exports = function(grunt) {
 
 	// To debug the values
 	grunt.event.on('watch', function(action, filepath, target) {
-	grunt.log.writeln(target + ': ' + filepath + ' has ' + action);
+		grunt.log.writeln(target + ': ' + filepath + ' has ' + action);
 	});
 
 };
