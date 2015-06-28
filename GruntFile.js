@@ -376,7 +376,10 @@ module.exports = function(grunt) {
 						}, {
 							type: 'text-summary'
 						}]
-					}
+					},
+					vendor: [
+						"<%= jsb.app%>/js/libs/jquery.js"
+					]
 				}
 			}
 		},
@@ -384,7 +387,7 @@ module.exports = function(grunt) {
 	//
 
 	/* Don't need to load the individual tasks anymore as we have been using
-    'matchdep' task in the start to load all the tasks from node_modules automatically */
+    'load-grunt-tasks' task in the start to load all the tasks from node_modules automatically */
 
 	// Let's set up some tasks
 	grunt.registerTask('server', [
