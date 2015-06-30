@@ -350,13 +350,31 @@ module.exports = function(grunt) {
 				'copy:styles'
 			]
 		},
-		karma: {
-			unit: {
-				configFile: 'karma.conf.js',
-				background: true, //The background option will tell grunt to run karma in a child process so it doesn't block subsequent grunt tasks.
-				singleRun: false //The singleRun: false option will tell grunt to keep the karma server up after a test run.
-			}
-		},
+		// karma: {
+		// 	unit: {
+		// 		configFile: 'karma.conf.js',
+		// 		background: true, //The background option will tell grunt to run karma in a child process so it doesn't block subsequent grunt tasks.
+		// 		singleRun: false //The singleRun: false option will tell grunt to keep the karma server up after a test run.
+		// 	}
+		// },
+        karma: {
+            options: {
+                configFile: 'karma.conf.js'
+            },
+            unit: {
+                singleRun: false,
+                browsers: ["PhantomJS"]
+            },
+            test: {
+                singleRun: true,
+                reporters: "progress"
+            },
+            coverage: {
+                singleRun: true,
+                reporters: "coverage"
+            }
+        },
+
 		jasmine: {
 			coverage: {
 				src: '<%= jsb.app %>/js/*.js',
