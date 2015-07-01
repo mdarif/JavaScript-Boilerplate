@@ -57,7 +57,7 @@ module.exports = function(grunt) {
 			test: 'test'
 		},
 		bin: {
-			coverage: 'test/bin/coverage'
+			coverage: 'test/coverage'
 		},
 		// Empties folders to start fresh
 		clean: {
@@ -73,46 +73,6 @@ module.exports = function(grunt) {
 			},
 			server: '.tmp'
 		},
-
-		// sass: {
-		//     dist: {
-		//         files: {
-		//             '<%= jsb.dist %>/css/style.min.css': '<%= jsb.app %>/css/style.scss'
-		//         }
-		//     }
-		// },
-
-		// By default, your `index.html`'s <!-- Usemin block --> will take care of
-		// minification. These next options are pre-configured if you do not wish
-		// to use the Usemin blocks.
-		// cssmin: {
-		//     dist: {
-		//         options: {
-		//             keepSpecialComments: 0,
-		//             report: "min",
-		//             selectorsMergeMode: "ie8"
-		//         },
-		//         files: { // Dictionary of files
-		//             '<%= jsb.dist %>/css/style.min.css': ['<%= jsb.app %>/css/style.css'],
-		//             '<%= jsb.dist %>/demo/css/style.min.css': ['<%= jsb.app %>/demo/css/style.css']
-		//         }
-		//     }
-		// },
-
-		// uglify: {
-		//     options: {
-		//         // The banner is inserted at the top of the output
-		//         banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-		//     },
-		//     dist: { // Target
-		//         files: { // Dictionary of files
-		//             'dist/js/<%= pkg.name %>.min.js': ['src/js/_.config.js', 'src/js/_.main.js', 'src/js/_.helper.js'],
-		//             'dist/demo/js/fb.friends.min.js': ['src/demo/js/fb.config.js', 'src/demo/js/fb.friends.list.js'],
-		//             'dist/js/libs/jquery.min.js': ['src/js/libs/jquery.js'],
-		//             'dist/js/libs/require.min.js': ['src/js/libs/require.js']
-		//         }
-		//     }
-		// },
 
 		// Make sure code styles are up to par and there are no obvious mistakes
 		jshint: {
@@ -284,11 +244,6 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		// shell: {
-		//     docco: {
-		//         command: 'docco -o jsdocumentation -l linear src/js/*.js'
-		//     }
-		// },
 		jsdoc: {
 			dist: {
 				src: ['<%= jsb.app %>/js/_.main.js'],
@@ -350,13 +305,6 @@ module.exports = function(grunt) {
 				'copy:styles'
 			]
 		},
-		// karma: {
-		// 	unit: {
-		// 		configFile: 'karma.conf.js',
-		// 		background: true, //The background option will tell grunt to run karma in a child process so it doesn't block subsequent grunt tasks.
-		// 		singleRun: false //The singleRun: false option will tell grunt to keep the karma server up after a test run.
-		// 	}
-		// },
         karma: {
             options: {
                 configFile: 'karma.conf.js'
@@ -370,7 +318,7 @@ module.exports = function(grunt) {
                 reporters: "progress"
             },
             coverage: {
-                singleRun: true,
+                singleRun: false,
                 reporters: "coverage"
             }
         },
@@ -449,10 +397,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('test', [
 		'jshint',
 		'jasmine'
-	]);
-
-	grunt.registerTask('karma', [
-		'karma'
 	]);
 
 	// To debug the values
