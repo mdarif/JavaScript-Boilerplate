@@ -49,9 +49,12 @@ describe("Test main js file", function() {
 	 */
 	describe("test log function", function() { // suite
 
+		it("Test $.log utility", function(){
+			expect($.log('test')).toBe(true);
+		});
+
 		it("JSB.config.debug should be true", function() { // specification or spec
 			expect(JSB.config.debug).toBe(true); // matcher, if you want to make sure something is literally true or false and nothing else, use the
-			//toEqual matcher
 		});
 
 		it("typeof window.console should be object", function() {
@@ -118,7 +121,7 @@ describe("Test main js file", function() {
 		});
 
 		xit("test null", function() {
-			expect($.toType(null)).toEqual("null");
+			expect($.toType(null)).toBeNull();
 		});
 
 		xit("test undefined", function() {
@@ -132,27 +135,16 @@ describe("Test main js file", function() {
 		});
 	});
 
+	describe("test getQueryString method", function() {
+		it("JSB.subHelper.getQueryString", function() {
+			expect(JSB.subHelper.getQueryString("name")).toEqual("");
+		});
+	});
+
+
 	describe("let's get the domain name", function() {
 		xit("test protocol", function() {
 			expect(window.location.protocol).toContain("http");
-		});
-
-	});
-
-	describe("test query strings", function() {
-		var name;
-		xit("check the output", function() {
-			expect(JSB.subHelper.getQueryString(name, 'Arif')).toEqual("Arif");
-		});
-
-		beforeEach(function() {
-			spyOn(JSB.subHelper, 'getQueryString');
-			JSB.subHelper.getQueryString(name, 'Arif');
-		});
-
-		it("tracks that the spy was called", function() {
-			//Let's tracks calls to it and all arguments through spyOn method.
-			expect(JSB.subHelper.getQueryString).toHaveBeenCalled();
 		});
 
 	});
