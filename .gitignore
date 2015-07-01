@@ -17,3 +17,4 @@ jsb.sublime-project
 jsb.sublime-workspace
 .grunt
 test/bin
+test/coverage
