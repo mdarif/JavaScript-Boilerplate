@@ -15,6 +15,7 @@
         "FB": true,
         "localStorage": true,
         "require": true,
+        "location": true,
          "_": false,
          "_V_": false,
          "afterEach": false,
