@@ -82,7 +82,7 @@ ins {
 }
 mark {
     background: #ff0;
-    color: #000;
+    color: rgb(194, 14, 14);
     font-style: italic;
     font-weight: bold;
 }
